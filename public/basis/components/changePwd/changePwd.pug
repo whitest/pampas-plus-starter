@@ -1,0 +1,65 @@
+//- 修改密码 pug模板 
+.component__change_pwd
+    
+    .pop_box(
+        component-popup 
+        pop-open="open" 
+        pop-close="close" 
+        pop-init="popInit()" 
+        pop-clear="popClear" 
+        pop-is-btn="true"
+    )
+    
+        .pop_main
+            h4 重设密码
+            div
+                component-input(
+                    model="phone" 
+                    input-type="normal" 
+                    input-class="pwdreset_input" 
+                    input-name="" 
+                    placeholder="请输入手机号" 
+                    is-disabled="false"
+                )
+            div
+                component-input(
+                    model="authCode" 
+                    input-type="normal" 
+                    input-class="pwdreset_code" 
+                    input-name="" 
+                    placeholder="请输入验证码" 
+                    is-disabled="false"
+                )
+                component-button(
+                    type="normal"
+                    btn-class="pwdreset_code_btn" 
+                    btn-name="{{getCodeWord}}" 
+                    click="getCodeEvent()" 
+                    is-unclick="getCodeRefuse"
+                )
+            div
+                component-input(
+                    model="pwd" 
+                    type="password" 
+                    input-class="pwdreset_input" 
+                    input-name="" 
+                    placeholder="密码（6-20位数字、字母组合）" 
+                    is-disabled="false"
+                )
+            div
+                component-input(
+                    model="pwdTwice" 
+                    type="password" 
+                    input-class="pwdreset_input" 
+                    input-name="" 
+                    placeholder="确认密码" 
+                    is-disabled="false"
+                )
+                
+        .pop_btn
+            component-button(
+                type="first" 
+                btn-class="btn"
+                btn-name="提交" 
+                click="pwdresetSubmit()"
+            )

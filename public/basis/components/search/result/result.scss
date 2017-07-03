@@ -1,0 +1,17 @@
+/* 搜索结果 样式 */
+.component__search__result {
+    display: none;
+
+    &.open {
+        display: block;
+    }
+
+    > li {
+        padding: 4px 10px;
+        cursor : pointer;
+
+        &:hover {
+            @include baseThemeBgColor( 'app', 'bg');
+        }
+    }
+}

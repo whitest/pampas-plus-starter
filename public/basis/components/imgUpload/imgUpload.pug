@@ -1,0 +1,66 @@
+//- 上传图片组件 pug模板
+.component__img_upload
+    input(
+        type="file" 
+        class="component__img_upload__file" 
+        nv-file-select="" 
+        uploader="uploader" 
+        accept="image/gif,image/jpeg,image/jpg,image/tiff,image/png"
+    )
+    ul.component__img_upload__list
+        li(
+            ng-repeat="(key, img) in config.imgInit" 
+            ng-style="imgLiStyle" 
+            ng-if="!!img" 
+            ng-mouseenter="img.dropCtrlShow = true" 
+            ng-mouseleave="img.dropCtrlShow = false"
+        )
+            div(
+                ng-style="imgDivStyle" 
+                style='background-image:url({{imageHost + img.img_url}})'
+            )
+            p(ng-if="!!imgTitles.length") {{imgTitles[$index]}}
+            span.component__img_upload__drop(ng-show="img.dropCtrlShow")
+                em(ng-click="dropImgInitEvent(key)")
+        li(
+            ng-repeat="item in uploader.queue" 
+            ng-style="imgLiStyle" 
+            ng-mouseenter="item.dropCtrlShow = true" 
+            ng-mouseleave="item.dropCtrlShow = false"
+        )
+            div(
+                ng-style="imgDivStyle" 
+                component-img-upload-preview 
+                ifile="item._file"
+            )
+            p(ng-if="!!imgTitles.length") {{imgTitles[$index + imgInitLength]}}
+            span.component__img_upload__loading(ng-if="item.isUploading")
+                em(ng-click="dropLoadingEvent(item)")
+                strong 上传中…
+            //- span.component__img_upload__queue(ng-if="item.isReady&&!$first")
+            //-     em(ng-click="dropReadyEvent(item)")
+            //-     strong 队列中…
+            span.component__img_upload__drop(
+                ng-if="item.isSuccess" 
+                ng-show="item.dropCtrlShow"
+            )
+                em(ng-click="dropImgEvent(item)")
+            span.component__img_upload__fail(ng-if="item.isError")
+                em(ng-click="dropFailEvent(item)")
+                h6
+                    i 上传失败
+                component-popicon(
+                    base-type="afresh" 
+                    pop-title="重新上传" 
+                    icon-class="" 
+                    self-class="component__img_afresh" 
+                    click="imgAfreshEvent(item)"
+                )
+        
+        //- 加号
+        li.component__img_upload__add(
+            ng-style="imgLiStyle" 
+            ng-click="chooseFileEvent()" 
+            ng-if="acount<imgMax"
+        )
+            div(ng-style="imgDivStyle")

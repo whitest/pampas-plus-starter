@@ -1,0 +1,64 @@
+.radio 
+    h2 radio
+    
+    h3 1.模板
+    h5.demo 
+      pre(hljs hljs-language="javascript")
+        |component-radio(
+        |    self-class="" 
+        |    is-checked="isChecked" 
+        |    click="radioClick()" 
+        |    title="title"
+        |    is-disabled="disabled"
+        |)
+    
+    h3 2.实例
+    h4 2.1、radio（normal/disabled）
+    h5
+      component-radio(
+        self-class="" 
+        is-checked="isChecked" 
+        click="radioClick()" 
+        title="title"
+        is-disabled="disabled"
+      )
+      span.flag(ng-class="{wrong:disabled}") {{flag}}
+    h5 
+      component-button.button(type='first' ng-click="disableEvent()" btn-name="{{disabled?'normal':'disabled'}}")
+      
+    h4 2.2、单选配置
+    h5
+      component-radio(
+        self-class="" 
+        is-checked="type==2" 
+        click="type=2" 
+        title="选项一"
+        style="margin-right:5px"
+      )
+      component-radio(
+        self-class="" 
+        is-checked="type==1" 
+        click="type=1" 
+        title="选项二"
+      )
+    h5 实现代码参考:
+    h5.demo component-radio(self-class="" is-checked="type==1" click="type=1" title="选项一")
+    h5.demo component-radio(self-class="" is-checked="type==2" click="type=2" title="选项二")
+    
+    h3 3.属性描述
+    h5.desc
+      dl
+        dt self-class:
+        dd class名称
+      dl
+        dt is-checked:
+        dd 是否选中，布尔值
+      dl
+        dt click:
+        dd 点击事件，布尔值或者方法
+      dl
+        dt title:
+        dd radio的名称
+      dl
+        dt is-disabled:
+        dd 是否可点击，布尔值

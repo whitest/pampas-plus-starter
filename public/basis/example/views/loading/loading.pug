@@ -1,0 +1,16 @@
+.loading 
+    h2 loading
+    h3 1.模板
+    h4.demo 参考js代码:
+    h5 开启loading:
+    h5.demo ComponentFactory.loadingOpen();
+    h5 关闭loading:
+    h5.demo ComponentFactory.loadingClose();
+    
+    h3 2.实例
+    h5
+      component-button.button(type='first' ng-click="loadingEvent()" btn-name="{{loading?'关闭loading':'开启loading'}}")
+
+    h3 3.描述
+    h5.desc 
+      | component-loading 为全局组件，调用时需注入 ComponentFactory

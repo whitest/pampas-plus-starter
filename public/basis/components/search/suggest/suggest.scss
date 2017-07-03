@@ -1,0 +1,32 @@
+/* 搜索suggest框 样式 */
+.component__search__suggest {
+    display      : none;
+    overflow-y   : auto;
+    position     : absolute;
+    top          : 40px;
+    right        : 0;
+    box-sizing   : border-box;
+    padding      : 10px 0;
+    width        : 100%;
+    max-height   : 220px;
+    background   : #FFF;
+    @include baseBorderMain();
+    border-radius: 3px;
+    z-index      : 10;
+    // @include baseThemeBorderColor( 'first', 'main');
+    // @include baseThemeBoxShadow( 'first', 'main', 1, 0 0 2px 0);
+    &.open {
+        // 打开
+        display: block;
+    }
+
+    .component__search__suggest_status {
+        // 显示状态 查询中、网络未连接 等
+        display   : inline-block;
+        box-sizing: border-box;
+        padding   : 4px 10px;
+        width     : 100%;
+        border    : 0;
+        font-size : 14px;
+    }
+}

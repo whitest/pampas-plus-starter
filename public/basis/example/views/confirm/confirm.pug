@@ -1,0 +1,20 @@
+.confirm
+    h2 confirm
+    
+    h3 1.模板JS
+    h5.demo  
+      pre(hljs hljs-language="javascript")
+        |ComponentFactory.confirm('确认弹窗')
+        |.then(() => {
+        |    $scope.confirmResolve = '点击了确认按钮' + num;
+        |})
+        
+    h3 2.实例
+    h5
+      component-button.button(type='first' ng-click="confirmEvent()" btn-name="点击调用确认弹窗")
+    h5
+      .resolve {{confirmResolve}}
+    
+    h3 3.描述
+    h5.desc 
+      | component-confirm 为全局组件，调用时需注入 ComponentFactory ，调用ComponentFactory.confirm('')方法。点击确定和'x'关闭弹窗。

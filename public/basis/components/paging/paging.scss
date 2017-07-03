@@ -1,0 +1,35 @@
+/* 分页组件 样式 */
+.component__paging {
+    padding         : 10px 20px;
+    background-color: #fff;
+
+    .component__paging_size {
+        display       : inline-block;
+        margin-right  : 18px;
+        vertical-align: middle;
+
+        > span {
+            display: inline-block;
+            padding: 4px;
+        }
+
+        .component__select {
+            ul {
+                li {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+
+    .component__page_ul {
+        display       : inline-block;
+        vertical-align: middle;
+    }
+
+    .component__select_option {
+        position: absolute;
+        top     : auto;
+        bottom  : 32px;
+    }
+}

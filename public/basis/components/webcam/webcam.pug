@@ -1,0 +1,26 @@
+//- 拍照功能组件 pug模板 
+.component__webcam
+    
+    .component__webcam_main(
+        component-popup 
+        pop-close="popClose" 
+        pop-open="popOpen" 
+        pop-is-btn="true"
+    )
+    
+        .component__webcam_zone(data-id="componentWebcamZone")
+        
+        .component__webcam_btns
+            .component__popup_btn_box
+                component-button(
+                    type="normal" 
+                    btn-class="component__popup_btn" 
+                    btn-name="取消" 
+                    click="close()"
+                )
+                component-button(
+                    type="first" 
+                    btn-class="component__popup_btn" 
+                    btn-name="拍摄" 
+                    click="takePhotoEvent()"
+                )

@@ -1,0 +1,52 @@
+// 根据 Angular-Paging 组件，设置相关样式
+
+.lib__paging {
+    @extend %baseCommonClearFix;
+    display      : inline-block;
+    overflow     : hidden;
+    height       : 30px;
+    border-radius: 3px;
+    @include baseBorderMain();
+
+    li {
+        width      : 44px;
+        height     : 30px;
+        float      : left;
+        text-align : center;
+        line-height: 30px;
+        @include baseBorder1px($position: left);
+        cursor     : pointer;
+
+        &:first-child {
+            border-left: 0;
+        }
+
+        &.next,
+        &.prev {
+            @include baseThemeColor( 'first', 'main');
+        }
+
+        &.next {}
+
+        &:hover {
+            background-color: map-get(map-get($color-light-map, 'form'), 'head1');
+        }
+
+        &.active {
+            color: #fff;
+            @include baseThemeBgColor( 'first', 'main');
+            @include baseThemeBorderColor( 'first', 'main');
+
+            a {
+                color: #FFF;
+            }
+        }
+
+        a {
+            display: inline-block;
+            width  : 100%;
+            height : 100%;
+            color  : map-get(map-get($color-fixed-map, 'main'), 'first');
+        }
+    }
+}

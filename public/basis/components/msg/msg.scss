@@ -1,0 +1,154 @@
+/* 消息通知 样式 */
+.component__msg {
+    float      : left;
+    margin-left: 30px;
+
+    > .msg {
+        position   : relative;
+        width      : 24px;
+        height     : 60px;
+        padding-top: 18px;
+        box-sizing : border-box;
+        cursor     : pointer;
+
+        > .msg_icon {
+            > em {
+                $img           : map-get($img-top-bar-ctrl-map,msg);
+                display        : inline-block;
+                width          : 24px;
+                height         : 24px;
+                vertical-align : middle;
+                background     : url($img) no-repeat center;
+                background-size: 24px;
+            }
+
+            > span {
+                display       : block;
+                padding       : 2px 6px;
+                border-radius : 90px;
+                font-size     : 12px;
+                color         : #fff;
+                @include baseThemeBgColor( 'second', 'main');
+                position      : absolute;
+                top           : 11px;
+                right         : -9.5px;
+                vertical-align: middle;
+            }
+        }
+
+        > .msg_list {
+            width           : 450px;
+            height          : 373px;
+            padding-top     : 45px;
+            box-sizing      : border-box;
+            position        : relative;
+            border-radius   : 3px;
+            background-color: #fff;
+            box-shadow      : 0 2px 4px 0 rgba(map-get(map-get($color-fixed-map, 'main'), 'second'), .1);
+            border          : solid 1px;
+            border-color    : map-get(map-get($color-fixed-map, 'border'), 'b2');
+
+            &:after,
+            &:before {
+                content : ' ';
+                height  : 0;
+                position: absolute;
+                width   : 0;
+                border  : 10px solid transparent;
+            }
+
+            &:before {
+                border-bottom-color: map-get(map-get($color-light-map, 'form'), 'head2');
+                position           : absolute;
+                top                : -19px;
+                right              : 25px;
+                z-index            : 2;
+            }
+
+            &:after {
+                border-bottom-color: map-get(map-get($color-fixed-map, 'border'), 'b1');
+                position           : absolute;
+                top                : -20px;
+                right              : 25px;
+                z-index            : 1;
+            }
+
+            > .title {
+                position        : absolute;
+                top             : 0;
+                left            : 0;
+                width           : 100%;
+                height          : 45px;
+                padding         : 0 20px;
+                line-height     : 45px;
+                background-color: map-get(map-get($color-light-map, 'form'), 'head2');
+                box-sizing      : border-box;
+                @extend %baseCommonClearFix;
+
+                > h4 {
+                    float      : left;
+                    font-size  : 14px;
+                    font-weight: normal;
+                    color      : map-get(map-get($color-fixed-map, 'main'), 'first');
+                }
+
+                > span {
+                    float    : right;
+                    font-size: 14px;
+                    @include baseThemeColor( 'first', 'deep');
+                }
+            }
+
+            > ul {
+                height    : 100%;
+                overflow-y: auto;
+
+                li {
+                    padding      : 10px 20px;
+                    border-bottom: 1px solid rgba(map-get(map-get($color-fixed-map, 'border'), 'b2'), 0.5);
+                    cursor       : pointer;
+
+                    &:hover {
+                        background-color: map-get(map-get($color-light-map, 'form'), 'on');
+                    }
+
+                    &:last-child {
+                        border: 0;
+                    }
+
+                    > div {
+                        color        : map-get(map-get($color-fixed-map, 'nav'), 'hoverword');
+                        margin-bottom: 15px;
+
+                        &.unread {
+                            @include baseThemeColor( 'first', 'main');
+                        }
+                    }
+
+                    > span {
+                        display   : block;
+                        text-align: right;
+                        color     : map-get(map-get($color-fixed-map, 'nav'), 'hoverword');
+                    }
+                }
+            }
+
+            > .no_msg {
+                span {
+                    display        : block;
+                    margin         : 80px auto 10px;
+                    width          : 70px;
+                    height         : 80px;
+                    background     : url($img-empty-status) no-repeat center;
+                    background-size: 70px 80px;
+                }
+
+                p {
+                    text-align: center;
+                    font-size : 14px;
+                    color     : map-get(map-get($color-fixed-map, 'aid'), 'w1');
+                }
+            }
+        }
+    }
+}

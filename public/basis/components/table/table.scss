@@ -1,0 +1,278 @@
+/* 表格组件 样式 */
+.component__table {
+    overflow-x: hidden;
+    position  : relative;
+    width     : 100%;
+    cursor    : default;
+
+    .component__table_main {
+        overflow-x: auto;
+        width     : 100%;
+
+        > table {
+            width: 100%;
+
+            &.component__table_border {
+                @include baseBorderMain();
+            }
+
+            &.component__table_for_info {
+                th {
+                    padding: 5px 14px;
+                }
+
+                td {
+                    padding: 5px 14px;
+                    height : 28px;
+
+                    .component__table_col {
+                        padding: 5px 14px;
+                    }
+                }
+            }
+
+            thead {
+                color           : map-get(map-get($color-fixed-map, 'main'), 'first');
+                background-color: map-get(map-get($color-light-map, 'form'), 'head2');
+                @include baseBorder1px( rgba(map-get(map-get($color-fixed-map, 'border'), 'b1'), .4), top);
+
+                th {
+                    padding    : 13px 20px;
+                    @include baseBorder1px( rgba(map-get(map-get($color-fixed-map, 'border'), 'b1'), .4), left);
+                    text-align : left;
+                    white-space: nowrap;
+
+                    &:first-child {
+                        border-left: 0;
+                    }
+
+                    div {
+                        display: inline-block;
+
+                        &.pointer {
+                            // 如果有排序功能，hover上有小手鼠标
+                            cursor: pointer;
+                        }
+
+                        .sort {
+                            // 排序
+                            position      : relative;
+                            display       : inline-block;
+                            height        : 10px;
+                            vertical-align: middle;
+
+                            em {
+                                // 向上箭头
+                                position     : absolute;
+                                left         : 0;
+                                top          : -1px;
+                                border-left  : 4.7px solid transparent;
+                                border-right : 4.7px solid transparent;
+                                border-bottom: 4.7px solid map-get(map-get($color-fixed-map, 'aid'), 'w3');
+                            }
+
+                            i {
+                                // 向下箭头
+                                position    : absolute;
+                                left        : 0;
+                                bottom      : 1px;
+                                border-left : 4.7px solid transparent;
+                                border-right: 4.7px solid transparent;
+                                border-top  : 4.7px solid map-get(map-get($color-fixed-map, 'aid'), 'w3');
+                            }
+
+                            .on {
+                                // 上箭头、下箭头选中
+                                @include baseThemeBorderColor( 'first', 'main');
+                                border-left-color : transparent !important;
+                                border-right-color: transparent !important;
+                            }
+                        }
+                    }
+                }
+            }
+
+            tbody {
+                color           : map-get(map-get($color-fixed-map, 'main'), 'first');
+                background-color: #FFF;
+                @include baseBorder1px( rgba(map-get(map-get($color-fixed-map, 'border'), 'b1'), .4), bottom);
+
+                tr {
+                    transition: background-color 0.6s;
+
+                    &.even {
+                        // 偶数行
+                        background-color: map-get(map-get($color-light-map, 'form'), 'zebra');
+                    }
+
+                    &:hover {
+                        // hover
+                        background-color: map-get(map-get($color-light-map, 'form'), 'on');
+                    }
+
+                    td {
+                        position  : relative;
+                        box-sizing: border-box;
+                        padding   : 12px 20px;
+                        height    : 56px;
+                        @include baseBorder1px( rgba(map-get(map-get($color-fixed-map, 'border'), 'b1'), .4), left);
+
+                        .component__table_col {
+                            position  : absolute;
+                            top       : 0;
+                            left      : 0;
+                            width     : 100%;
+                            height    : 100%;
+                            box-sizing: border-box;
+                            padding   : 12px 20px;
+                            @extend %baseCommonEllipsis;
+
+                            > i {
+                                display       : inline-block;
+                                width         : 0;
+                                height        : 100%;
+                                vertical-align: middle;
+                            }
+                        }
+
+                        &:first-child {
+                            border-left: 0;
+                        }
+
+                        a {
+                            margin-left: 10px;
+
+                            &.first {
+                                margin-left: 0;
+                            }
+                        }
+
+                        &.ctrl {
+                            // 操作区域
+                            position: relative;
+
+                            .icon {
+                                // 私有图标样式
+                                margin-right: 10px;
+                            }
+
+                            > span {
+                                // 未hover时显示
+                                position       : absolute;
+                                // top            : 12px;
+                                // left           : 20px;
+                                display        : inline-block;
+                                width          : 28px;
+                                height         : 28px;
+                                background     : url($img-table-ctrl-normal) no-repeat center;
+                                background-size: 100%;
+                                z-index        : 1;
+                            }
+
+                            > div {
+                                // 主要操作
+                                visibility: hidden;
+                                min-height: 32px;
+
+                                &.show {
+                                    visibility: visible;
+                                }
+                            }
+                        }
+
+                        .component__table_coach_tag {
+                            // 教练标签
+                            ul {
+                                @extend %baseCommonClearFix;
+
+                                li {
+                                    float           : left;
+                                    margin          : 0 10px 10px 0;
+                                    padding         : 6px 20px;
+                                    background-color: map-get(map-get($color-light-map, 'form'), 'head1');
+                                    border-radius   : 50px;
+                                    @include baseBorderMain();
+
+                                    &.more {
+                                        margin       : 12px 0 0;
+                                        padding      : 0;
+                                        border-left  : 5px solid transparent;
+                                        border-right : 5px solid transparent;
+                                        border-top   : 10px solid map-get(map-get($color-fixed-map, 'aid'), 'w3');
+                                        border-bottom: 0;
+                                        border-radius: 0;
+                                        cursor       : pointer;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .component__table_empty {
+            // 空的时候显示
+            display   : table;
+            width     : 100%;
+            height    : 200px;
+            background: #FFF;
+
+            &.component__table_empty_for_info {
+                // 详情页，行高比较小的时候
+                height: 170px;
+
+                em {
+                    width : 90px;
+                    height: 90px;
+                }
+
+                p {
+                    font-size: 12px;
+                }
+            }
+
+            > div {
+                width         : 100%;
+                display       : table-cell;
+                vertical-align: middle;
+            }
+
+            em {
+                display        : block;
+                margin         : 0 auto;
+                width          : 128px;
+                height         : 128px;
+                background     : url($img-table-empty);
+                background-size: 100%;
+            }
+
+            p {
+                margin-top: 4px;
+                font-size : 14px;
+                color     : map-get(map-get($color-fixed-map, 'aid'), 'w1');
+                text-align: center;
+            }
+        }
+    }
+    // 左、右内阴影
+    .component__table_shadow_left {
+        display   : block;
+        position  : absolute;
+        top       : 0;
+        left      : 0;
+        width     : 2px;
+        height    : 100%;
+        box-shadow: 0 0 8px 3px rgba(#000, .3);
+    }
+
+    .component__table_shadow_right {
+        display   : block;
+        position  : absolute;
+        top       : 0;
+        right     : 0;
+        width     : 2px;
+        height    : 100%;
+        box-shadow: 0 0 8px 3px rgba(#000, .3);
+    }
+}

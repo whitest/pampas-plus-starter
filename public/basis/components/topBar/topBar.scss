@@ -1,0 +1,28 @@
+/* 顶部二级菜单导航 样式 */
+.component__top_bar {
+    width           : 100%;
+    height          : 60px;
+    padding         : 15px 20px 0;
+    box-sizing      : border-box;
+    background-color: #fff;
+    box-shadow      : 0 2px 4px 0 rgba(map-get(map-get($color-fixed-map, 'main'), 'second'), .1);
+    position        : relative;
+    z-index         : 100;
+    @extend %baseCommonClearFix;
+
+    > .topBack {
+        float       : left;
+        margin-right: 60px;
+    }
+
+    > .navTabs {
+        float: left;
+    }
+
+    > .ctrl {
+        position: absolute;
+        top     : 0;
+        right   : 70px;
+        @extend %baseCommonClearFix;
+    }
+}

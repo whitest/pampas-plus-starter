@@ -1,0 +1,5 @@
+//- 单项选择组件 pug模板 
+.component__radio
+    div(class="{{selfClass}}" ng-click="clickEvent()")
+        em(ng-class="{'checked': !!isChecked, 'disabled': !!isDisabled, 'default_checked': !!isChecked&&!!isDisabled}")
+        span(ng-bind="title")

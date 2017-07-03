@@ -1,0 +1,10 @@
+//- 详情展示图 pug模板
+.component__normal_pic(ng-style="moduleStyle")
+    div(
+        class="component__normal_ware_pic__normal {{type}}" 
+        ng-if="!pic"
+    )
+    .component__normal_ware_pic__img(
+        ng-style="imgStyle" 
+        ng-if="pic"
+    )

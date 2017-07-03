@@ -1,0 +1,71 @@
+/* 输入框组件 样式 */
+.component__input {
+    display: inline;
+
+    > input {
+        display      : inline;
+        padding      : 6px 7px;
+        @include baseBorderMain($color:map-get(map-get($color-fixed-map, 'border'), 'b2'));
+        border-radius: 3px;
+
+        &:hover {
+            border-color: map-get(map-get($color-fixed-map, 'aid'), 'w5');
+        }
+    }
+
+    > .normal {
+        // 普通输入框
+        width : 90px;
+        height: 30px;
+    }
+
+     > .date,
+    .date_time {
+        // 日期输入框
+        width     : 110px;
+        height    : 30px;
+        cursor    : pointer;
+        background: {
+            image   : url($img-input-date);
+            size    : 16px;
+            repeat  : no-repeat;
+            position: 84px center;
+        }
+    }
+
+    .date_time {
+        width              : 140px;
+        background-position: 114px center;
+    }
+
+    > .select {
+        // 下拉框
+        width : 100%;
+        height: 30px;
+        cursor: pointer;
+    }
+
+    > .input_select {}
+
+    > .focus {
+        // 获取焦点
+        @include baseThemeBorderColor( 'first', 'main');
+        @include baseThemeBoxShadow( 'first', 'main', .7, 0 0 2px 0);
+
+        &:hover {
+            @include baseThemeBorderColor( 'first', 'main');
+        }
+    }
+
+    > .disabled {
+        // 不可填写
+        color           : map-get(map-get($color-fixed-map, 'aid'), 'w4');
+        background-color: map-get(map-get($color-light-map, 'alert'), 'bg');
+        box-shadow      : none;
+        border-color    : map-get(map-get($color-fixed-map, 'border'), 'b2');
+
+        &:hover {
+            border-color: map-get(map-get($color-fixed-map, 'border'), 'b2');
+        }
+    }
+}

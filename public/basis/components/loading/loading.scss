@@ -1,0 +1,22 @@
+/* loading状态 样式 */
+.component__loading {
+    .component__loading_main {
+        // width     : 100%;
+        // @extend %baseCommonFullScreenFixed;
+        position   : absolute;
+        top        : 50%;
+        left       : 50%;
+        margin-top : -9px;
+        margin-left: -37px;
+        width      : 74px;
+        height     : 18px;
+        z-index    : 200;
+        background : {
+            image   : url($img-loading);
+            repeat  : no-repeat;
+            position: center;
+            size    : 74px 18px;
+            // color   : rgba(0,0,0,.2);
+        }
+    }
+}

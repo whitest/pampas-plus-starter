@@ -1,0 +1,21 @@
+//- 强提示弹窗 pug模板
+.component___alert
+    
+    .component___alert_main(
+        component-popup 
+        pop-close="close" 
+        pop-open="open" 
+        pop-is-btn="true"
+    )
+    
+        .component___alert_msg
+            p {{msg}}
+            
+        .component___alert_btns
+            .component__popup_btn_box
+                component-button(
+                    type="first" 
+                    btn-class="component__popup_btn" 
+                    btn-name="确定" 
+                    click="submitEvent()"
+                )

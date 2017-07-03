@@ -1,0 +1,53 @@
+//- 日历时间选择组件 pug模板
+.component__date_time
+    //- 月维度
+    span.direct_date_time_input(ng-if="type=='month'")
+        component-input(
+            input-type="month" 
+            input-class="{{selfClass}}" 
+            placeholder="请选择月份" 
+            model="model" 
+            is-readonly="true" 
+            is-disabled="isDisabled" 
+            ng-click="openEvent($event)"
+        )
+        component-date-time-picker
+            
+    //- 日维度
+    span.direct_date_time_input(ng-if="type=='date'")
+        component-input(
+            input-type="date" 
+            input-class="{{selfClass}}" 
+            placeholder="请选择年月" 
+            model="model" 
+            is-readonly="true" 
+            is-disabled="isDisabled" 
+            ng-click="openEvent($event)"
+        )
+        component-date-time-picker
+            
+    //- 时分维度
+    span.direct_date_time_input(ng-if="type=='time'")
+        component-input(
+            input-type="time" 
+            input-class="{{selfClass}}" 
+            placeholder="时分" 
+            model="model" 
+            is-readonly="true" 
+            is-disabled="isDisabled" 
+            ng-click="openEvent($event)"
+        )
+        component-date-time-picker.time_picker
+            
+    //- 日期和时间都有
+    span.direct_date_time_input(ng-if="type=='dateTime'")
+        component-input(
+            input-type="date_time" 
+            input-class="{{selfClass}}" 
+            placeholder="请选择日期和时间" 
+            model="model" 
+            is-readonly="true" 
+            is-disabled="isDisabled" 
+            ng-click="openEvent($event)"
+        )
+        component-date-time-picker

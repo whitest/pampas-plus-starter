@@ -1,0 +1,108 @@
+.component__date_time__picker(
+    ng-style="selfStyle" 
+    ng-controller="ComponentDateTimePicker" 
+    ng-show="!!show"
+)
+    .dateTable
+        //- 操作区域
+        .ctrls(ng-if="type!='time'")
+            span.pages.prev(
+                ng-click="dateTablePrev()" 
+                ng-show="tableType=='date'" 
+                ng-if="type=='date'||type=='dateTime'"
+            )
+            span.pages.prev(
+                ng-click="yearTablePrev()" 
+                ng-show="tableType=='year'" 
+                ng-if="type=='date'||type=='month'||type=='dateTime'"
+            )
+            span.choose.arrow.years(
+                ng-class="{'open':tableType=='year'}" 
+                ng-click="changeTable('year')" 
+                ng-if="type=='date'||type=='month'||type=='dateTime'"
+            ) {{year}}年
+            span.choose.arrow.months(
+                ng-class="{'open':tableType=='month'}" 
+                ng-click="changeTable('month')" 
+                ng-if="type=='date'||type=='month'||type=='dateTime'"
+            ) {{month}}月
+            span.pages.next(
+                ng-click="yearTableNext()" 
+                ng-show="tableType=='year'" 
+                ng-if="type=='date'||type=='month'||type=='dateTime'"
+            )
+            span.pages.next(
+                ng-click="dateTableNext()" 
+                ng-show="tableType=='date'" 
+                ng-if="type=='date'||type=='dateTime'"
+            )
+        //- 年选择
+        .years(
+            ng-show="tableType=='year'" ng-if="type=='date'||type=='month'||type=='dateTime'"
+        )
+            table
+                tbody
+                    tr(ng-repeat="years in yearList")
+                        td(
+                            ng-repeat="y in years" 
+                            ng-click="chooseYearEvent(y)"
+                        ) {{y}}
+        //- 月选择
+        .months(
+            ng-show="tableType=='month'" 
+            ng-if="type=='date'||type=='month'||type=='dateTime'"
+        )
+            table
+                tbody
+                    tr(ng-repeat="month in monthList")
+                        td(
+                            ng-repeat="m in month" 
+                            ng-click="chooseMonthEvent(m)"
+                        ) {{m+'月'}}
+                        
+        //- 日维度选择
+        .dates(
+            ng-show="tableType=='date'" 
+            ng-if="type=='date'||type=='dateTime'"
+        )
+            table
+                thead
+                    tr
+                        th(ng-repeat="n in daysname") {{n}}
+                tbody
+                    tr(ng-repeat="tr in dateElem")
+                        td(
+                            ng-repeat="td in tr" 
+                            ng-class="{'not_current':td.month!='t','today':!!td.today,'other_limit':!!td.limit, 'area':td.isArea, 'init_area': td.isInitArea}" 
+                            ng-click="chooseDateEvent(td)" 
+                            ng-mouseenter="datesTableMouseOver(td)"
+                        )
+                            span(ng-class="{'on':(td.ymd==date||0==startValue.indexOf(td.ymd)||0==endValue.indexOf(td.ymd))}")  
+                                | {{td.day<10?'0'+td.day:td.day}}
+        
+        //- 时间选择
+        .times(ng-if="type=='time'||type=='dateTime'")
+            em.hours.arrow(
+                ng-class="{'open':hoursListShow}" 
+                ng-click="hoursListOpen($event)"
+            ) {{hour}}点
+            em.minutes.arrow(
+                ng-class="{'open':minutesListShow}" 
+                ng-click="minutesListOpen($event)"
+            ) {{minute}}分
+            ul.time_list.hours_list(ng-if="hoursListShow")
+                li(
+                    ng-repeat="h in hoursList" 
+                    ng-click="hoursChoose(h)"
+                ) {{h}}点
+            ul.time_list.minutes_list(ng-if="minutesListShow")
+                li(
+                    ng-repeat="m in minutesList" 
+                    ng-click="minutesChoose(m)"
+                ) {{m}}分
+            component-button(
+                type="first" 
+                btn-class="submit_btn" 
+                btn-name="确定" 
+                click="close()"
+            )

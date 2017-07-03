@@ -1,0 +1,28 @@
+.uploadAvatar_module 
+  h2 uploadAvatar
+  
+  h3 1.模板
+  h5.demo
+    pre(hljs hljs-language="javascript")
+      | component-upload-avatar(
+      |   config=""
+      |   avatar=""
+      | )
+      
+  h3 2.实例
+  h5
+    component-upload-avatar(
+      config="avatarConfig"
+      avatar="avatar"
+    )
+    
+  h3 3.描述
+  h5.desc 
+    dl
+      dt config
+      dd 上传头像配置，config.refresh('图片地址')，config.init = '图片地址'。
+    dl
+      dt avatar
+      dd 上传头像或拍照成功后的base64。
+      
+    

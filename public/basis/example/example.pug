@@ -1,0 +1,30 @@
+doctype html
+html
+    head
+        meta(http-equiv="content-type" content="text/html charset=UTF-8")
+        meta(charset="UTF-8")
+        title 潘帕斯健身房系统基础组件示例
+
+    body.theme_test(ng-controller="example")
+        nav
+            ul
+                li(
+                    ng-class="{'on': leftNavOn==li.link}"
+                    ng-repeat="li in leftNav"
+                    ng-click="leftNavChoose(li)"
+                ) {{li.title}}
+        .main
+            ng-view.view_module
+            //- loading效果组件
+            component-loading
+            //-确认组件
+            component-confirm
+            //-提示
+            component-popalert
+    
+    link(rel="stylesheet", type="text/css", href="https://cdn.bootcss.com/highlight.js/9.12.0/styles/solarized-light.min.css")    
+    script(
+        src="/webcam/webcam.min.js"
+        type="text/javascript" 
+        charset="utf-8"
+        )

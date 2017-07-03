@@ -1,0 +1,15 @@
+//- 生成头像功能 pug模板 
+.component__upload_avatar
+    .component__upload_avatar_img
+        component-normal-pic(
+            config="picConfig" 
+            refresh="picRefresh"
+        )
+
+    .component__upload_avatar_ctrl
+        em.component__upload_avatar_carema(ng-click="webcamOpen()")
+        em.component__upload_avatar_file(ng-click="cropperOpen()")
+
+    component-webcam(open="webcamOpen" resolve="picResolve")
+
+    component-cropper(open="cropperOpen" resolve="picResolve")

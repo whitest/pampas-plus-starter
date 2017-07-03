@@ -1,0 +1,202 @@
+/* 合同收据 样式 */
+@media screen {
+    .component__contract {
+        display: none;
+    }
+}
+@media print {
+    .component__contract {
+        font-size  : 12pt;
+        font-family: 'Microsoft YaHei',"黑体","宋体";
+        color      : #000;
+        // 会员
+        .member_id {
+            display : block;
+            position: fixed;
+            top     : 4.8cm;
+            left    : 23.25cm;
+        }
+        // 个人资料
+        .member_name {
+            display : block;
+            position: fixed;
+            left    : 5.4cm;
+            top     : 8.77cm;
+        }
+
+        .sex {
+            display : block;
+            position: fixed;
+            left    : 13.1cm;
+            top     : 8.77cm;
+        }
+
+        .company {
+            display : block;
+            position: fixed;
+            left    : 19.25cm;
+            top     : 8.77cm;
+        }
+
+        .born_date_year {
+            display : block;
+            position: fixed;
+            left    : 5.54cm;
+            top     : 10.63cm;
+        }
+
+        .born_date_month {
+            display : block;
+            position: fixed;
+            left    : 8.47cm;
+            top     : 10.63cm;
+        }
+
+        .born_date_day {
+            display : block;
+            position: fixed;
+            left    : 11.24cm;
+            top     : 10.63cm;
+        }
+
+        .id_card {
+            display : block;
+            position: fixed;
+            left    : 20.8cm;
+            top     : 10.63cm;
+        }
+
+        .mobile_phone {
+            display : block;
+            position: fixed;
+            left    : 5.54cm;
+            top     : 12.63cm;
+        }
+
+        .address {
+            display : block;
+            position: fixed;
+            left    : 15.4cm;
+            top     : 12.63cm;
+        }
+
+        .case_of_people {
+            display : block;
+            position: fixed;
+            left    : 6.16cm;
+            top     : 14.43cm;
+        }
+
+        .case_of_phone {
+            display : block;
+            position: fixed;
+            left    : 20.02cm;
+            top     : 14.43cm;
+        }
+        // 产品资料
+        .product_type {
+            display : block;
+            position: fixed;
+            left    : 5.54cm;
+            top     : 18.43cm;
+        }
+
+        .card_name {
+            display : block;
+            position: fixed;
+            left    : 18.48cm;
+            top     : 18.43cm;
+        }
+
+        .card_number {
+            display : block;
+            position: fixed;
+            left    : 5.39cm;
+            top     : 20.18cm;
+        }
+
+        .deal_price {
+            display : block;
+            position: fixed;
+            left    : 18.48cm;
+            top     : 20.18cm;
+        }
+
+        .from_date_year {
+            display : block;
+            position: fixed;
+            left    : 7cm;
+            top     : 22.03cm;
+        }
+
+        .from_date_month {
+            display : block;
+            position: fixed;
+            left    : 9.2cm;
+            top     : 22.03cm;
+        }
+
+        .from_date_day {
+            display : block;
+            position: fixed;
+            left    : 11.7cm;
+            top     : 22.03cm;
+        }
+
+        .to_date_year {
+            display : block;
+            position: fixed;
+            left    : 18.2cm;
+            top     : 22.03cm;
+        }
+
+        .to_date_month {
+            display : block;
+            position: fixed;
+            left    : 20.9cm;
+            top     : 22.03cm;
+        }
+
+        .to_date_day {
+            display : block;
+            position: fixed;
+            left    : 23.56cm;
+            top     : 22.03cm;
+        }
+
+        .remark {
+            display : block;
+            position: fixed;
+            left    : 5.54cm;
+            top     : 25.10cm;
+        }
+
+        .total_amount {
+            display : block;
+            position: fixed;
+            left    : 24.64cm;
+            top     : 26.13cm;
+        }
+        // 付款信息
+        .real_total_amount {
+            display : block;
+            position: fixed;
+            left    : 5.39cm;
+            top     : 29.83cm;
+        }
+
+        .made_of_payment {
+            display : block;
+            position: fixed;
+            left    : 16.17cm;
+            top     : 29.83cm;
+        }
+
+        .total_debt {
+            display : block;
+            position: fixed;
+            left    : 5.39cm;
+            top     : 31.93cm;
+        }
+    }
+}

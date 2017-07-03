@@ -1,0 +1,25 @@
+/* 标签页 顶部二级菜单 样式 */
+.component__nav_tabs {
+    > ul {
+        li {
+            display    : inline-block;
+            box-sizing : border-box;
+            margin     : 0 5px;
+            padding    : 0 15px;
+            height     : 45px;
+            line-height: 45px;
+            box-sizing : border-box;
+            text-align : center;
+            font-size  : 16px;
+            // @include baseThemeColor( 'nav', 'bg');
+            color      : map-get(map-get($color-fixed-map, 'aid'), 'w1');
+            cursor     : pointer;
+
+            &.active {
+                border-bottom: 3px solid;
+                @include baseThemeBorderColor( 'first', 'main');
+                color        : map-get(map-get($color-fixed-map, 'main'), 'first');
+            }
+        }
+    }
+}

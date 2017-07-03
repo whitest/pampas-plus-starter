@@ -1,0 +1,95 @@
+/* 用户退出登录 样式 */
+.component__user_ctrl {
+    float      : left;
+    margin-left: 30px;
+
+    > .user_ctrl {
+        width : 24px;
+        height: 60px;
+
+        > .uesr_ctrl_icon {
+            $img           : map-get($img-top-bar-ctrl-map,user_ctrl);
+            width          : 24px;
+            height         : 60px;
+            padding-top    : 20px;
+            box-sizing     : border-box;
+            cursor         : pointer;
+            background     : url($img) no-repeat center;
+            background-size: 24px;
+        }
+
+        > .user_ctrl_main {
+            width           : 120px;
+            // height          : 90px;
+            border-radius   : 3px;
+            background-color: #fff;
+            box-shadow      : 0 2px 4px 0 rgba(map-get(map-get($color-fixed-map, 'main'), 'second'), .1);
+            border          : solid 1px;
+            border-color    : map-get(map-get($color-fixed-map, 'border'), 'b2');
+
+            > div {
+                height      : 45px;
+                padding-left: 43px;
+                font-size   : 14px;
+                color       : map-get(map-get($color-fixed-map, 'main'), 'first');
+                cursor      : pointer;
+                z-index     : 3;
+
+                &:before {
+                    content            : ' ';
+                    height             : 0;
+                    width              : 0;
+                    border             : 10px solid transparent;
+                    border-bottom-color: map-get(map-get($color-light-map, 'form'), 'head2');
+                    position           : absolute;
+                    top                : -19px;
+                    left               : 50%;
+                    margin-left        : -9px;
+                    z-index            : 2;
+                }
+
+                &.password {
+                    background     : url($img-password) no-repeat 15px center;
+                    background-size: 20px;
+
+                    &:hover {
+                        background-color: map-get(map-get($color-light-map, 'form'), 'on');
+                    }
+                }
+
+                &.quit {
+                    background     : url($img-quit) no-repeat 15px center;
+                    background-size: 20px;
+
+                    &:hover {
+                        background-color: map-get(map-get($color-light-map, 'form'), 'on');
+                    }
+                }
+
+                &.user_info {
+                    position        : relative;
+                    background-color: map-get(map-get($color-light-map, 'form'), 'head2');
+
+                    .user_pic {
+                        width     : 20px;
+                        height    : 20px;
+                        position  : absolute;
+                        left      : 15px;
+                        top       : 50%;
+                        margin-top: -10px;
+                    }
+                }
+
+                > span {
+                    display      : inline-block;
+                    width        : 100%;
+                    height       : 45px;
+                    line-height  : 45px;
+                    overflow     : hidden;
+                    text-overflow: ellipsis;
+                    white-space  : nowrap;
+                }
+            }
+        }
+    }
+}

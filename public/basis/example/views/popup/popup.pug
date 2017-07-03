@@ -1,0 +1,98 @@
+.popup_module
+  h2 popup
+  
+  h3 1.模板
+  h5.demo
+    pre(hljs hljs-language="javascript")
+      | // 窗体  需样式定义宽度
+      | .self__main(
+      |     component-popup 
+      |     pop-open="open" 
+      |     pop-init="popInt()" 
+      |     pop-close="close" 
+      |     pop-clear="clear"  
+      |     pop-is-btn="true"
+      | )
+      |   // 弹窗内容区域
+      |   .self__box
+      |   // 弹窗button区域  需声明样式 .self__btns {@extend %componentPopupBtns;}
+      |   .self__btns
+      |     .component__popup_btn_box
+      |          component-button(
+      |            type="normal"
+      |            btn-class="component__popup_btn"
+      |            btn-name="返回"
+      |            click="close()"
+      |          )
+      |          component-button(
+      |            type="first"
+      |            btn-class="component__popup_btn"
+      |            btn-name="确定"
+      |            click=""
+      |          )
+      
+    h3 2.实例
+    h5
+      component-button(
+        type="first"
+        btn-name="点击打开弹窗"
+        btn-class="button_module_btn"
+        btn-type="button"
+        click="open()"
+        is-load=""
+        is-unclick=""
+        is-permission=""
+        no-permission=""
+      )
+      .popup_demo
+        .self__main(
+          component-popup
+          pop-open="open"
+          pop-init="popInt()"
+          pop-close="close" 
+          pop-clear="clear"
+          pop-is-btn="true"
+        )
+         .self__box
+            p 这里是弹窗内容区域
+            p 这里是弹窗内容区域
+            p 这里是弹窗内容区域
+            p 这里是弹窗内容区域
+            p 这里是弹窗内容区域
+            p 这里是弹窗内容区域
+         .self__btns
+           .component__popup_btn_box
+                component-button(
+                  type="normal"
+                  btn-class="component__popup_btn"
+                  btn-name="返回"
+                  click="close()"
+                )
+                component-button(
+                  type="first"
+                  btn-class="component__popup_btn"
+                  btn-name="确定"
+                  click=""
+                )
+    
+    h3 3.描述
+    h5.desc
+      dl
+        dt component-popup
+        dd 属性指令，声明弹窗组件。
+      dl
+        dt pop-open="open"
+        dd 指定打开弹窗的函数。
+      dl
+        dt pop-init="popInt()"
+        dd 指定打开弹窗时执行的初始化。打开弹窗时检测是否有pop-init,如果有则执行pop-init指定的初始化函数。
+      dl
+        dt pop-close="close"
+        dd 指定关闭弹窗的函数。
+      dl
+        dt pop-clear="clear"
+        dd 指定关闭弹窗时执行的清空数据。关闭弹窗时检测是否有pop-clear,如果有则执行pop-init指定的清空函数。
+      dl
+        dt pop-is-btn="true"
+        dd 配置弹窗是否有下面button模块。
+      

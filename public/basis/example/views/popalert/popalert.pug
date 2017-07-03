@@ -1,0 +1,41 @@
+.popalert_moudle
+  component-popalert
+  
+  h2 popalert
+  
+  h3 1.模板
+  h5(hljs hljs-language="javascript")
+    | JS调用：
+    br
+    | 成功提示 popAlert：ComponentFactory.popAlert('成功信息'); 
+    br
+    | 错误提示 popError：ComponentFactory.popError('错误信息');
+    
+  h3 2.实例
+  h5 
+    component-button(
+      type="first"
+      btn-name="成功提示"
+      btn-class="button_module_btn"
+      btn-type="button"
+      click="popAlert()"
+      is-load=""
+      is-unclick=""
+      is-permission=""
+      no-permission=""
+    )
+    component-button(
+      type="normal"
+      btn-name="错误提示"
+      btn-class="button_module_btn"
+      btn-type="button"
+      click="popError()"
+      is-load=""
+      is-unclick=""
+      is-permission=""
+      no-permission=""
+    )
+  
+  h3 3.描述
+  h5.desc  
+    | component-popalert 为全局组件，分成功提示ComponentFactory.popAlert('')和错误提示ComponentFactory.popError('')，调用时需注入为全局组件，分成功提示ComponentFactory

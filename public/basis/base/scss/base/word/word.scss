@@ -1,0 +1,15 @@
+/* 基础文字配置 底层scss变量、常量、样式、方法等封装 */
+
+/*
+ *  普通变量：$word-name: {value};
+ *
+ *  数组变量：$word-name-arr: (arg1, arg2);
+ *
+ *  map变量：$word-name-map: (key1: value1, key2: value2);
+ *
+ *  mixin方法封装：@mixin baseWordName($args){}
+ *
+ *  function方法封装：@function baseWordName($args){}
+ *
+ *  占位符封装：%baseWordName{}
+ */

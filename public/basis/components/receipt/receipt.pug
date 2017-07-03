@@ -1,0 +1,140 @@
+//- 小票收据 pug模板 
+.component__receipt( print-section)
+    h6 {{shopName}}
+    .print_div
+        dl(ng-if="config.printTemp!='cancle'")
+            dt 购买日期：
+            dd {{config.orderTimeShow}}
+        dl(ng-if="config.printTemp=='cancle'")
+            dt 课程类型：
+            dd 私教课
+        dl
+            dt 操作人：
+            dd {{config.creator}}
+    
+    //- 卡类型小票
+    .print_div(ng-show="config.printTemp=='card'")
+        dl
+            dt 会员卡名称：
+            dd {{config.wareTitle}}
+        dl
+            dt 失效日期：
+            dd {{config.endTimeShow}}
+        dl
+            dt 实收金额：
+            dd {{config.realAmountShow}}
+        dl
+            dt 支付方式：
+            dd {{config.payTypeShow}}
+        dl
+            dt.glo_ver_top 备注：
+            dd
+                
+    //- 私教课类型 小票
+    .print_div(ng-show="config.printTemp=='personal'")
+        dl
+            dt 私教课名称：
+            dd {{config.wareTitle}}
+        dl
+            dt 私人教练：
+            dd {{config.coachInfo}}
+        dl
+            dt 合计课时数量：
+            dd {{config.numShow}}
+        dl
+            dt 课时单价：
+            dd {{config.warePriceShow}}
+        dl
+            dt 实收金额：
+            dd {{config.realAmountShow}}
+        dl
+            dt 支付方式：
+            dd {{config.payTypeShow}}
+        dl
+            dt.glo_ver_top 备注：
+            dd
+                
+    //- 团课类型 小票
+    .print_div(ng-show="config.printTemp=='group'")
+        dl
+            dt 团课名称：
+            dd {{config.wareTitle}}
+        dl
+            dt 合计课时数量：
+            dd {{config.numShow}}
+        dl
+            dt 课时单价：
+            dd {{config.warePriceShow}}
+        dl
+            dt 实收金额：
+            dd {{config.realAmountShow}}
+        dl
+            dt 支付方式：
+            dd {{config.payTypeShow}}
+        dl
+            dt.glo_ver_top 备注：
+            dd
+            
+    //- 实物商品类型 小票
+    .print_div(ng-show="config.printTemp=='goods'")
+        .goods_middle
+            dl
+                dt {{config.wareTitleShow}}
+                dd {{config.numShow}}
+                dd {{config.warePriceShow}}
+        dl
+            dt 应收金额：
+            dd {{config.shouldAmountShow}}
+        dl
+            dt 实际金额：
+            dd {{config.realAmountShow}}
+        dl
+            dt 支付方式：
+            dd {{config.payTypeShow}}
+                
+    //- 消课 小票
+    .print_div(ng-show="config.printTemp=='cancle'")
+        dl
+            dt 课程名称：
+            dd {{config.wareTitle}}
+        dl
+            dt 私人教练：
+            dd {{config.coachInfo}}
+        dl
+            dt 课程时间：
+            dd {{config.lessShow}}
+        dl
+            dt 上课地点：
+            dd {{config.shopAddress}}
+        dl
+            dt 上课时间：
+            dd {{config.startTime}}
+        dl
+            dt 下课时间：
+            dd {{config.endTime}}
+        dl
+            dt 课程余量：
+            dd {{config.balance}}
+            
+    //- 签名处
+    .print_div.sign
+        dl
+            dt 会员签名：
+            dd
+        span {{config.memberName}}
+        
+    .print_div
+        dl
+            dt 打印时间：
+            dd {{config.printTime}}
+        dl
+            dt 电话：
+            dd {{config.shopPhone}}
+        dl
+            dt 地址：
+            dd {{config.shopAddress}}
+        dl
+            dt 潘帕斯健身房系统：
+            dd {{config.netAddress}}
+        
+        

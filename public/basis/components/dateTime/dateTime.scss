@@ -1,0 +1,12 @@
+/* 日历时间选择组件 样式 */
+@import './picker/picker';
+
+.component__date_time {
+    display: inline-block;
+
+    > span {
+        position: relative;
+        display : inline-block;
+        padding : 0 3px;
+    }
+}

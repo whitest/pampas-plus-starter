@@ -1,0 +1,36 @@
+/* 多项选择组件 样式 */
+.component__checkbox {
+    display: inline-block;
+
+    > div {
+        display: inline-block;
+        cursor : pointer;
+        // 按钮icon
+        em {
+            display        : inline-block;
+            width          : 18px;
+            height         : 18px;
+            background     : url($img-checkbox-default) no-repeat center;
+            background-size: 100%;
+            vertical-align : middle;
+
+            &.disabled {
+                background-image: url($img-checkbox-disabled);
+            }
+
+            &.checked {
+                background-image: url($img-checkbox-checked);
+            }
+
+            &.default_checked {
+                background-image: url($img-checkbox-default-checked);
+            }
+        }
+        // 文字
+        span {
+            display       : inline-block;
+            margin-left   : 4px;
+            vertical-align: middle;
+        }
+    }
+}

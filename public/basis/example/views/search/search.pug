@@ -1,0 +1,98 @@
+.search
+    h2 search
+    
+    h3 1.样式一
+    h4 1.1、模板
+    h5.demo 
+      pre(hljs hljs-language="javascript")
+        |div(
+        |   component-search=""
+        |   config="searchConfig1"
+        |)
+    h4 1.2、实例
+    h5    
+      div(
+          component-search=""
+          config="searchConfig1"
+      )
+      h5
+        span 您已点击搜索按钮，值为:
+        span.value {{searchConfig1Value}}
+        
+    h4 1.3、描述
+    h5
+      |searchConfig1
+      
+    h3 2.样式二
+    h4 2.1、模板
+    h5.demo 
+      pre(hljs hljs-language="javascript") 
+        |div(component-search="", config="searchConfig2")
+        |   div(component-search-suggest="")
+        |      ul(component-search-result="")
+        |         li(
+        |              ng-repeat="r in searchResultTest" 
+        |              ng-click="searchResultTestClickEvent(r)"
+        |           )
+        |              h6
+        |                 strong   r.name
+        |                 span   r.type
+        |              p  r.callout
+        
+    h4 2.2、实例
+    h5    
+      div(component-search="", config="searchConfig2")
+        div(component-search-suggest="")
+          ul(component-search-result="")
+            li(ng-repeat="r in searchResultTest", ng-click="searchResultTestClickEvent(r)")
+              h6
+                strong {{r.name}}
+                span {{r.type}}
+              p {{r.callout}}
+              
+      .print 打印value值        
+      .searchShow {{searchConfig2Show}}        
+    h4 2.3、描述
+    h5
+      |searchConfig2
+      
+    h3 3.样式三
+    h4 3.1、模板
+    h5.demo 
+      pre(hljs hljs-language="javascript") 
+        |div(component-search="", config="searchConfig3")
+        |   div(component-search-suggest="")
+        |       ul(component-search-result="")
+        |         li(
+        |              ng-repeat="r in searchResult3Test",
+        |              ng-click="searchResultTestClickEvent3(r)"
+        |           )
+        |              h6
+        |                 strong   r.name
+        |                 span   r.type
+        |              p  r.callout
+        
+    h4 3.2、实例
+    h5    
+      div(component-search="", config="searchConfig3")
+        div(component-search-suggest="")
+          ul(component-search-result="")
+            li(ng-repeat="r in searchResult3Test", ng-click="searchResultTestClickEvent3(r)")
+              h6
+                strong {{r.name}}
+                span {{r.type}}
+              p {{r.callout}}
+              
+      .print 打印value值
+      .searchShow {{searchConfig3Show}}       
+    h4 3.3、描述
+    h5
+      |searchConfig2
+    h3 4.使用说明
+    h5.setting.
+      search组件主要是通过配置config来实现业务交互。
+      通过searchEvent函数拿到搜索的value,然后通过ajax将value值发送给后台,将返回的数据对象通过遍历渲染在页面上。
+      
+    
+    
+    

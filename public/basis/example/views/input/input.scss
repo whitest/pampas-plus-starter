@@ -1,0 +1,113 @@
+.input {
+  .main {
+    padding-left: 40px;
+
+    .input_name {
+      width: 150px;
+    }
+
+    .flag {
+      margin-left: 5px;
+      font-size  : 12px;
+      color      : green;
+
+      &.wrong {
+        color: red;
+      }
+    }
+
+    .input_setting {
+      overflow: hidden;
+
+      .button {
+        float       : left;
+        height      : 40px;
+        line-height : 40px;
+        margin-top  : 10px;
+        margin-right: 20px;
+      }
+
+      .self_input {
+        width      : 220px;
+        overflow   : hidden;
+        height     : 40px;
+        line-height: 40px;
+        margin-top : 10px;
+
+        .leftWords {
+          float      : left;
+          height     : 40px;
+          line-height: 46px;
+        }
+
+        .maxLengthShow {
+          max-width  : 40px;
+          height     : 20px;
+          margin-top : 12px;
+          float      : left;
+          text-align : center;
+          margin-left: 5px;
+          border     : 1px solid #ccc;
+        }
+
+        .parent_add {
+          float      : left;
+          width      : 12px;
+          height     : 42px;
+          margin-left: 5px;
+          padding-top: 5px;
+
+          .top {
+            display      : block;
+            width        : 10px;
+            height       : 16px;
+            border-top   : 5px solid transparent;
+            border-left  : 5px solid transparent;
+            border-right : 5px solid transparent;
+            border-bottom: 8px solid black;
+            margin-bottom: 2px;
+          }
+
+          .bottom {
+            display      : block;
+            width        : 10px;
+            height       : 16px;
+            border-top   : 8px solid black;
+            border-left  : 5px solid transparent;
+            border-right : 5px solid transparent;
+            border-bottom: 5px solid transparent;
+          }
+        }
+      }
+    }
+
+    .common {
+      font-weight  : normal;
+      font-size    : 15px;
+      margin-top   : 10px;
+      margin-bottom: 5px;
+    }
+
+    .support {
+      color: #E76024;
+    }
+
+    .annotation {
+      color: #333;
+    }
+
+    .consoleLog {
+      width      : 300px;
+      height     : 100px;
+      border     : 1px solid #ccc;
+      color      : red;
+      text-align : center;
+      line-height: 100px;
+      font-size  : 40px;
+    }
+  }
+
+  .setting {
+    margin-bottom: 50px;
+  }
+}

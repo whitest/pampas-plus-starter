@@ -1,0 +1,36 @@
+/* 详情展示图 样式 */
+.component__normal_pic {
+    display      : inline-block;
+    overflow     : hidden;
+    width        : 80px;
+    height       : 80px;
+    border-radius: 80px;
+
+    > .component__normal_ware_pic__normal {
+        // 默认图片
+        display   : inline-block;
+        width     : 100%;
+        height    : 100%;
+        background: map-get(map-get($color-fixed-map, 'border'), 'b3') no-repeat center;
+
+        &.ware {
+            // 商品
+            background-image: url($img-normal-ware-pic);
+            background-size : 59px 39px;
+        }
+
+        &.person {
+            // 人
+            background-image: url($img-default-head);
+            background-size : 100%;
+        }
+    }
+
+    > .component__normal_ware_pic__img {
+        display        : inline-block;
+        width          : 100%;
+        height         : 100%;
+        background     : map-get(map-get($color-fixed-map, 'border'), 'b3') no-repeat center;
+        background-size: cover;
+    }
+}

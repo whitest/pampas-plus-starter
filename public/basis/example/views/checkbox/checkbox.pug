@@ -1,0 +1,57 @@
+.basis_component_checkbox
+  h2 checkbox
+  
+  h3 1.模板
+  h5.demo 
+    pre(hljs hljs-language="javascript") 
+      | component-checkbox( 
+      |   is-checked="" 
+      |   is-disabled="" 
+      |   title="" 
+      |   click="" 
+      |   self-class=""
+      | )
+      
+  h3 2.实例
+  h5 
+    component-checkbox(
+      is-checked='checked'
+      is-disabled=''
+      title='苹果'
+      click= 'checked=!checked'
+      self-class= 'self_checkbox'
+    )
+
+    component-checkbox(
+      is-checked='checked1'
+      is-disabled=''
+      title='香蕉'
+      click= 'checked1=!checked1'
+      self-class= 'self_checkbox'
+    )
+
+    component-checkbox(
+      is-checked='checked2'
+      is-disabled=''
+      title='草莓'
+      click= 'checked2=!checked2'
+      self-class= 'self_checkbox'
+    )
+
+  h3 3.属性描述
+  h5.desc
+    dl
+      dt is-checked:
+      dd 是否被选中，选中状态 true。
+    dl
+      dt is-disabled:
+      dd 是否可点击，不可点击 true。
+    dl 
+      dt title:
+      dd 每个选项的文案
+    dl 
+      dt click:
+      dd 多选框点击事件，改变is-checked的值切换选择和未选中状态。
+    dl 
+      dt self-class:
+      dd 额外的私有样式

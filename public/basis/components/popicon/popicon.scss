@@ -1,0 +1,269 @@
+/* 气泡图标组件 样式 */
+.component__popicon {
+    display : inline-block;
+    position: relative;
+    width   : 28px;
+    height  : 28px;
+
+    span {
+        position        : absolute;
+        top             : -28px;
+        left            : 0;
+        display         : inline-block;
+        padding         : 4px 6px;
+        white-space     : nowrap;
+        border-radius   : 3px;
+        font-size       : 12px;
+        color           : #fff;
+        background-color: map-get(map-get($color-fixed-map, 'nav'), 'hoverword');
+        z-index         : 50;
+        opacity         : 0;
+        @include baseAnimateTransition(all 400ms);
+
+        &:before {
+            content         : ' ';
+            height          : 0;
+            width           : 0;
+            border          : 5px solid transparent;
+            border-top-color: map-get(map-get($color-fixed-map, 'nav'), 'hoverword');
+            position        : absolute;
+            bottom          : -10px;
+            left            : 50%;
+            margin-left     : -4px;
+        }
+
+        &.show {
+            opacity: 1;
+        }
+    }
+
+    p {
+        display   : inline-block;
+        width     : 28px;
+        height    : 28px;
+        cursor    : pointer;
+        background: {
+            repeat  : no-repeat;
+            position: center;
+            size    : 100%;
+        }
+
+        &.component__popicon_search {
+            // 通用图标 搜索
+            background-image: url($img-popicon-search);
+
+            &.no_permission,
+            &.un_click {
+                background-image: url($img-popicon-search-no-permission);
+            }
+        }
+
+        &.component__popicon_edit {
+            // 通用图标 编辑
+            background-image: url($img-popicon-edit);
+
+            &.no_permission,
+            &.un_click {
+                background-image: url($img-popicon-edit-no-permission);
+            }
+        }
+
+        &.component__popicon_drop {
+            // 通用图标 删除
+            background-image: url($img-popicon-drop);
+
+            &.no_permission,
+            &.un_click {
+                background-image: url($img-popicon-drop-no-permission);
+            }
+        }
+
+        &.component__popicon_course {
+            // 通用图标 课程预约操作
+            background-image: url($img-popicon-course);
+
+            &.no_permission,
+            &.un_click {
+                background-image: url($img-popicon-course-no-permission);
+            }
+        }
+
+        &.component__popicon_down {
+            // 通用图标 向下减小
+            background-image: url($img-popicon-down);
+
+            &.no_permission,
+            &.un_click {
+                background-image: url($img-popicon-down-no-permission);
+            }
+        }
+
+        &.component__popicon_up {
+            // 通用图标 向上增加
+            background-image: url($img-popicon-up);
+
+            &.no_permission,
+            &.un_click {
+                background-image: url($img-popicon-up-no-permission);
+            }
+        }
+
+        &.component__popicon_offline {
+            // 通用图标 上下线
+            background-image: url($img-popicon-offline);
+
+            &.no_permission,
+            &.un_click {
+                background-image: url($img-popicon-offline-no-permission);
+            }
+        }
+
+        &.component__popicon_offShelf {
+            // 通用图标 下架
+            background-image: url($img-popicon-offline);
+
+            &.no_permission,
+            &.un_click {
+                background-image: url($img-popicon-offline-no-permission);
+            }
+        }
+
+        &.component__popicon_storage {
+            // 通用图标 入库
+            background-image: url($img-popicon-storage);
+
+            &.no_permission,
+            &.un_click {
+                background-image: url($img-popicon-storage-no-permission);
+            }
+        }
+
+        &.component_popicon_membership {
+            //通用图标 分配会籍
+            background-image: url($img-popicon-membership);
+
+            &.no_permission,
+            &.un_click {
+                background-image: url($img-popicon-membership-no-permission);
+            }
+        }
+
+        &.component_popicon_leave {
+            //通用图标 确认离场
+            background-image: url($img-popicon-leave);
+        }
+
+        &.component_popicon_receive {
+            //通用图标 接收会员
+            background-image: url($img-popicon-receive);
+
+            &.no_permission,
+            &.un_click {
+                background-image: url($img-popicon-receive-no-permission);
+            }
+        }
+
+        &.component_popicon_quit {
+            //通用图标 确认离场
+            background-image: url($img-popicon-quit);
+
+            &.no_permission,
+            &.un_click {
+                background-image: url($img-popicon-quit-no-permission);
+            }
+        }
+
+        &.component_popicon_cancle {
+            //通用图标 取消
+            background-image: url($img-popicon-cancle);
+
+            &.no_permission,
+            &.un_click {
+                background-image: url($img-popicon-cancle-no-permission);
+            }
+        }
+
+        &.component_popicon_confirm {
+            //通用图标 确认到店
+            background-image: url($img-popicon-confirm);
+
+            &.no_permission,
+            &.un_click {
+                background-image: url($img-popicon-confirm-no-permission);
+            }
+        }
+
+        &.component_popicon_sales {
+            //通用图标 售卖
+            background-image: url($img-popicon-sales);
+
+            &.no_permission,
+            &.un_click {
+                background-image: url($img-popicon-sales-no-permission);
+            }
+        }
+
+        &.component_popicon_forbid {
+            //通用图标 禁售
+            background-image: url($img-popicon-forbid);
+
+            &.no_permission,
+            &.un_click {
+                background-image: url($img-popicon-forbid-no-permission);
+            }
+        }
+
+        &.component_popicon_receipt {
+            //通用图标 打印小票
+            background-image: url($img-popicon-receipt);
+
+            &.no_permission,
+            &.un_click {
+                background-image: url($img-popicon-receipt-no-permission);
+            }
+        }
+
+        &.component_popicon_backout {
+            //通用图标 撤销
+            background-image: url($img-popicon-backout);
+
+            &.no_permission,
+            &.un_click {
+                background-image: url($img-popicon-backout-no-permission);
+            }
+        }
+
+        &.component_popicon_status {
+            //通用图标 员工状态
+            background-image: url($img-popicon-status);
+
+            &.no_permission,
+            &.un_click {
+                background-image: url($img-popicon-status-no-permission);
+            }
+        }
+
+        &.component_popicon_contract {
+            //通用图标 合同编号
+            background-image: url($img-popicon-contract);
+
+            &.no_permission,
+            &.un_click {
+                background-image: url($img-popicon-contract-no-permission);
+            }
+        }
+
+        &.component_popicon_img_afresh {
+            background-image: url($img-img-afreach);
+        }
+
+        &.component_popicon_img_note {
+            // 时间段查询
+            background-image: url($img-popicon-note);
+
+            &:hover {
+                background-image: url($img-popicon-note-hover);
+            }
+        }
+    }
+}

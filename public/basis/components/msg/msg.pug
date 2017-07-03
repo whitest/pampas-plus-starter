@@ -1,0 +1,30 @@
+//- 消息通知 html模板
+.component__msg
+    
+    .msg(ng-dropover ng-dropover-options="{{config}}")
+        
+        .msg_icon
+            em
+            span(ng-show="!!msgTotal") {{msgTotal}}
+            
+        .msg_list(ng-dropover-contents ng-mouseleave="mouseleaveEvent()")
+            
+            .title
+                h4 消息通知
+                span(ng-show="!!msgTotal" ng-click="changMsgAllType()")
+                    | 全部标记已读
+                    
+            ul(ng-show="msgList.length")
+                li(
+                    ng-repeat="r in msgList" 
+                    ng-click="toSearchMsgInfo(r.messageShopId)"
+                )
+                    div(
+                        ng-class="{unread:!r.isRead}" 
+                        ng-bind-html="r.contentShow"
+                    )
+                    span {{r.sendTime}}
+                    
+            .no_msg(ng-show="!msgList.length")
+                span
+                p 暂无通知

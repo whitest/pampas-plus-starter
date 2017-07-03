@@ -1,0 +1,25 @@
+.alert_module 
+  component-alert
+  h2 alert 
+  
+  h3 1.模板
+  h5(hljs hljs-language="javascript") JS调用： ComponentFactory.alert('hello world!');
+  
+  h3 2.实例
+  h5
+    component-button(
+      type="first"
+      btn-name="点击调用alert弹窗"
+      btn-class="button_module_btn"
+      btn-type="button"
+      click="alertEvent()"
+      is-load=""
+      is-unclick=""
+      is-permission=""
+      no-permission=""
+    )
+    
+  h3 3.描述
+  h5.desc
+    | component-alert 为全局组件，调用时需注入 ComponentFactory ，调用ComponentFactory.alert('')方法。点击确定和'x'关闭弹窗。
+  

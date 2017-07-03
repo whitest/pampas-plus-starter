@@ -1,0 +1,14 @@
+//- 切换状态列表 pug模板 
+.component__search__switches
+    
+    h6(ng-style="swtchesH6Style" ng-class="{'disabled': isDisabled}" ng-click="switchesOpenEvent()")
+        | {{switchesOnTitle}}
+        em(ng-if="switchesList.length>1")
+            
+    ul(ng-show="switchesListShow")
+        li(
+            ng-repeat="s in switchesList" 
+            ng-click="switchesChooseEvent($event, s)"
+        )
+            | {{s.title}}
+            em(ng-if="$index==switchesList.length-1")

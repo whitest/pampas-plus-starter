@@ -1,0 +1,21 @@
+/* 多行文本域组件 样式 */
+.component__textarea {
+    display: inline;
+
+    > textarea {
+        display      : inline;
+        padding      : 6px 7px;
+        @include baseBorderMain($color:map-get(map-get($color-fixed-map, 'border'), 'b2'));
+        border-radius: 3px;
+        resize       : none;
+
+        &:hover {
+            border-color: map-get(map-get($color-fixed-map, 'aid'), 'w5');
+        }
+
+        &.focus {
+            @include baseThemeBorderColor( 'first', 'main');
+            @include baseThemeBoxShadow( 'first', 'main', .7, 0 0 2px 0);
+        }
+    }
+}

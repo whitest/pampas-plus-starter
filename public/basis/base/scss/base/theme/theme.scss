@@ -1,0 +1,82 @@
+/* 风格主题配置 底层scss变量、常量、样式、方法等封装 */
+/*
+ *  普通变量：$theme-name: {value};
+ *
+ *  数组变量：$theme-name-arr: (arg1, arg2);
+ *
+ *  map变量：$theme-name-map: (key1: value1, key2: value2);
+ *
+ *  mixin方法封装：@mixin baseThemeName($args){}
+ *
+ *  function方法封装：@function baseThemeName($args){}
+ *
+ *  占位符封装：%baseThemeName{}
+ */
+$theme-manage-map: (
+    theme_normal: map-get($color-replaceable-map, 'normal'),
+);
+
+@mixin baseThemeColor($mapName, $name, $opacity:1) {
+     @each $self-theme-manage-name, $self-theme-manage-map in $theme-manage-map{
+        $self-theme-base-map: map-get($self-theme-manage-map, $mapName);
+        @if($self-theme-manage-name == 'theme_normal') {
+            & {
+                color: rgba(map-get($self-theme-base-map, $name), $opacity);
+                // @include baseAnimateTransition(color 400ms);
+            }
+        }
+        @else {
+            .#{$self-theme-manage-name} & {
+                color: rgba(map-get($self-theme-base-map, $name), $opacity);
+            }
+        }
+    }
+};
+@mixin baseThemeBgColor($mapName, $name, $opacity:1) {
+     @each $self-theme-manage-name, $self-theme-manage-map in $theme-manage-map{
+        $self-theme-base-map: map-get($self-theme-manage-map, $mapName);
+        @if($self-theme-manage-name == 'theme_normal') {
+            & {
+                background-color: rgba(map-get($self-theme-base-map, $name), $opacity);
+                // @include baseAnimateTransition(color 400ms);
+            }
+        }
+        @else {
+            .#{$self-theme-manage-name} & {
+                background-color: rgba(map-get($self-theme-base-map, $name), $opacity);
+            }
+        }
+    }
+};
+@mixin baseThemeBorderColor($mapName, $name, $opacity:1) {
+     @each $self-theme-manage-name, $self-theme-manage-map in $theme-manage-map{
+        $self-theme-base-map: map-get($self-theme-manage-map, $mapName);
+        @if($self-theme-manage-name == 'theme_normal') {
+            & {
+                border-color: rgba(map-get($self-theme-base-map, $name), $opacity);
+                // @include baseAnimateTransition(color 400ms);
+            }
+        }
+        @else {
+            .#{$self-theme-manage-name} & {
+                border-color: rgba(map-get($self-theme-base-map, $name), $opacity);
+            }
+        }
+    }
+};
+@mixin baseThemeBoxShadow($mapName, $name, $opacity: 1, $args...) {
+     @each $self-theme-manage-name, $self-theme-manage-map in $theme-manage-map{
+        $self-theme-base-map: map-get($self-theme-manage-map, $mapName);
+        @if($self-theme-manage-name == 'theme_normal') {
+            & {
+                box-shadow: $args rgba(map-get($self-theme-base-map, $name), $opacity);
+                transition: color 400ms;
+            }
+        }
+        @else {
+            .#{$self-theme-manage-name} & {
+                box-shadow: $args rgba(map-get($self-theme-base-map, $name), $opacity);
+            }
+        }
+    }
+}

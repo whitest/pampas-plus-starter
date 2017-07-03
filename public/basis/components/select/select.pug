@@ -1,0 +1,15 @@
+//- 下拉框组件 pug模板 
+.component__select(ng-style="config.style")
+    .component__select_box(ng-click="openEvent($event)")
+        component-input(
+            model="model" 
+            input-type="select" 
+            input-class="component__select_input" 
+            placeholder="请选择" 
+            is-readonly="true" 
+            is-disabled="config.isDisabled"
+        )
+        em
+    ul.component__select_option(ng-show="show")
+        li(ng-repeat="l in config.list" ng-click="clickEvent(l)")
+            | {{l[words]}}

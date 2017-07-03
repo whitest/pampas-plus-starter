@@ -1,0 +1,156 @@
+/* 上传图片组件 样式 */
+.component__img_upload {
+    .component__img_upload__file {
+        // 隐藏input file
+        visibility: hidden;
+        position  : absolute;
+        left      : -99999px;
+        top       : -99999px;
+    }
+
+    .component__img_upload__list {
+        // 列表
+        @extend %baseCommonClearFix;
+
+        li {
+            float        : left;
+            position     : relative;
+            margin-right : 7px;
+            margin-bottom: 10px;
+            overflow     : hidden;
+            width        : 150px;
+
+            > div {
+                width          : 150px;
+                height         : 84px;
+                background     : map-get(map-get($color-light-map, 'search'), 'aid') no-repeat center;
+                background-size: cover;
+                border-radius  : 3px;
+            }
+
+            > p {
+                margin-top: 10px;
+                height    : 20px;
+                overflow  : hidden;
+            }
+
+            .component__img_upload__queue,
+            > .component__img_upload__loading {
+                display      : block;
+                @extend %baseCommonFullScreen;
+                height       : 84px;
+                background   : rgba(gray, .5);
+                z-index      : 1;
+                border-radius: 3px;
+                text-align   : center;
+                line-height  : 84px;
+
+                strong {
+                    display        : inline-block;
+                    font-size      : 12px;
+                    font-weight    : 400;
+                    color          : #fff;
+                    padding-left   : 17px;
+                    background     : url($img-loading-small) no-repeat left center;
+                    background-size: 16px 4px;
+                }
+
+                em {
+                    display        : block;
+                    position       : absolute;
+                    top            : 5px;
+                    right          : 5px;
+                    width          : 10px;
+                    height         : 10px;
+                    background     : url($img-img-drop) no-repeat center;
+                    background-size: 100%;
+                    cursor         : pointer;
+                }
+            }
+
+            > .component__img_upload__drop {
+                display      : block;
+                @extend %baseCommonFullScreen;
+                height       : 84px;
+                background   : rgba(gray, .5);
+                z-index      : 1;
+                border-radius: 3px;
+
+                em {
+                    display        : block;
+                    position       : absolute;
+                    top            : 5px;
+                    right          : 5px;
+                    width          : 10px;
+                    height         : 10px;
+                    background     : url($img-img-drop) no-repeat center;
+                    background-size: 100%;
+                    cursor         : pointer;
+                }
+            }
+
+            > .component__img_upload__fail {
+                display      : block;
+                @extend %baseCommonFullScreen;
+                height       : 84px;
+                background   : rgba(gray, .5);
+                z-index      : 1;
+                border-radius: 3px;
+                text-align   : center;
+
+                em {
+                    display        : block;
+                    position       : absolute;
+                    top            : 5px;
+                    right          : 5px;
+                    width          : 10px;
+                    height         : 10px;
+                    background     : url($img-img-drop) no-repeat center;
+                    background-size: 100%;
+                    cursor         : pointer;
+                }
+
+                > h6 {
+                    margin     : 27px 0 0;
+                    font-weight: 400;
+                    text-align : center;
+
+                    i {
+                        display        : inline-block;
+                        padding-left   : 17px;
+                        font-size      : 12px;
+                        font-style     : normal;
+                        color          : #fff;
+                        background     : url($img-important-warning) no-repeat left center;
+                        background-size: 18px;
+                    }
+                }
+
+                .component__img_afresh {
+                    width     : 16px;
+                    height    : 16px;
+                    margin-top: 12px;
+
+                    p {
+                        width : 16px;
+                        height: 16px;
+                    }
+
+                    span {
+                        top : -32px;
+                        left: -7px;
+                    }
+                }
+            }
+
+            &.component__img_upload__add {
+                // 添加按钮
+                div {
+                    background     : rgba(map-get(map-get($color-fixed-map, 'border'), 'b4'), .4) url($img-img-add) no-repeat center;
+                    background-size: 20px;
+                    cursor         : pointer;
+                }
+            }
+        }
+    }
+};

@@ -1,0 +1,45 @@
+//- 合同收据 pug模板
+.component__contract(print-section)
+
+    //- 会员卡号
+    span.member_id {{config.coverNo}}
+
+    //- 个人资料
+    span.member_name {{config.memberName}}
+    span.sex {{config.memberSexShow}}
+    span.company {{config.company}}
+
+    span.born_date_year {{config.birthY}}
+    span.born_date_month {{config.birthM}}
+    span.born_date_day {{config.birthD}}
+    span.id_card {{config.idCard}}
+
+    span.mobile_phone {{config.memberPhone}}
+    span.address {{config.address}}
+
+    span.case_of_people {{config.contacts}}
+    span.case_of_phone {{config.contactsPhone}}
+
+    //- 产品资料
+    span.product_type {{config.productType}}
+    span.card_name {{config.productName}}
+
+    span.card_number {{config.productNum}}
+    span.deal_price {{config.dealPrice}}
+
+    span.from_date_year {{config.productStartY}}
+    span.from_date_month {{config.productStartM}}
+    span.from_date_day {{config.productStartD}}
+    span.to_date_year {{config.productEndY}}
+    span.to_date_month {{config.productEndM}}
+    span.to_date_day {{config.productEndD}}
+
+    span.remark {{config.remark}}
+
+    span.total_amount {{config.realAmountShow}}
+
+    //- 付款信息
+    span.real_total_amount {{config.realAmountShow}}
+    span.made_of_payment {{config.payTypeShow}}
+
+    span.total_debt {{config.arrears}}

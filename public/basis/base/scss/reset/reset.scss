@@ -1,0 +1,132 @@
+/* 网站样式格式化 样式 */
+$reset-font-family: PingFangSC-Regular,Microsoft Yahei,\\5B8B\4F53;
+$reset-font-normal-size: 12px;
+
+* {
+    margin : 0;
+    padding: 0;
+}
+
+body {
+    // overflow   : -moz-scrollbars-vertical;
+    width      : 100%;
+    word-break : break-all;
+    font-size  : $reset-font-normal-size;
+    font-family: $reset-font-family;
+    color      : map-get(map-get($color-fixed-map, 'main'), 'second');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: $reset-font-normal-size;
+}
+
+img,
+table {
+    border: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+li,
+ol,
+ul {
+    list-style: none;
+}
+
+a {
+    cursor: pointer;
+    @include baseThemeColor( 'first', 'deep');
+
+    transition: color 200ms;
+
+    &:active,
+    &:link,
+    &:visited {
+        text-decoration: none;
+        outline        : none;
+        @include baseThemeColor( 'first', 'deep');
+    }
+
+    &:hover {
+        text-decoration: none;
+        @include baseThemeColor( 'first', 'press');
+    }
+
+    &.unclick {
+        // @include baseThemeColor( 'first', 'unclick');
+        color : map-get(map-get($color-fixed-map, 'aid'), 'w5');
+        cursor: not-allowed;
+
+        &:active,
+        &:link,
+        &:visited {
+            text-decoration: none;
+            outline        : none;
+            // @include baseThemeColor( 'first', 'unclick');
+            color          : map-get(map-get($color-fixed-map, 'aid'), 'w5');
+        }
+
+        &:hover {
+            text-decoration: none;
+            // @include baseThemeColor( 'first', 'unclick');
+            color          : map-get(map-get($color-fixed-map, 'aid'), 'w5');
+        }
+    }
+
+    &.no_permission {
+        @include baseThemeColor( 'first', 'unclick');
+        cursor: not-allowed;
+
+        &:active,
+        &:link,
+        &:visited {
+            text-decoration: none;
+            outline        : none;
+            @include baseThemeColor( 'first', 'unclick');
+        }
+
+        &:hover {
+            text-decoration: none;
+            @include baseThemeColor( 'first', 'unclick');
+        }
+    }
+}
+
+button,
+input,
+select,
+textarea {
+    outline    : none;
+    font-family: $reset-font-family;
+}
+
+input,
+textarea {
+    font-size     : $reset-font-normal-size;
+    vertical-align: baseline;
+}
+
+input[type='password'],
+input[type='text'],
+textarea {
+    box-sizing: border-box;
+    padding   : 4px 6px;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+    width       : 14px;
+    height      : 14px;
+    margin-right: 3px;
+}
+
+img {
+    vertical-align: middle;
+}

@@ -1,0 +1,27 @@
+//- 搜索框 pug模板 
+.component__search__box(
+    ng-class="{'focus': isFocus, 'is_suggest': config.isSuggest, 'disabled': isDisabled}" 
+    ng-style="boxStyle"
+)
+    em
+    input.component__search__box_text(
+        type="text" 
+        ng-class="{'disabled': isDisabled}"
+        ng-disabled="isDisabled" 
+        placeholder="{{config.placeholder || '请输入查询内容'}}" 
+        ng-model="searchBox" 
+        ng-focus="focusEvent()" 
+        ng-blur="blurEvent()" 
+        ng-change="changeEvent()" 
+        ng-keyup="enterEvent($event)"
+        ng-paste="pasteEvent($event)"
+    )
+    component-button(
+        type="first" 
+        btn-class="component__search__box_btn" 
+        btn-name="搜索" 
+        click="searchEvent()" 
+        is-permission="{{config.isPermission}}" 
+        no-permission="config.noPermission" 
+        ng-if="!config.isSuggest"
+    )

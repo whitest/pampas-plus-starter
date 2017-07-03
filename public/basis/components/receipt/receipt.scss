@@ -1,0 +1,92 @@
+/* 小票收据 样式 */
+@media screen {
+    .component__receipt {
+        display: none;
+    }
+}
+@page {
+    size: A4;
+}
+@media print {
+    .component__receipt {
+        // 打印样式
+        display    : block;
+        // width   : 100%;
+        position   : fixed;
+        top        : 0;
+        left       : 10mm;
+        // width      : 100%;
+        width      : 300mm;
+        font-family: 'Microsoft YaHei',"黑体","宋体";
+        color      : #000;
+
+        h6 {
+            // margin-top: 4cm;
+            padding   : 1cm 0 2cm;
+            font-size : 14px * 5;
+            text-align: center;
+        }
+
+        .print_div {
+            padding      : 2cm 0;
+            border-top   : 2px dashed map-get(map-get($color-fixed-map, 'main'), 'first');
+            border-bottom: 2px dashed map-get(map-get($color-fixed-map, 'main'), 'first');
+
+            &.sign {
+                position: relative;
+
+                > span {
+                    position : absolute;
+                    bottom   : 0.5cm;
+                    right    : 3cm;
+                    font-size: 12px * 4;
+                }
+            }
+        }
+
+        .goods_middle {
+            margin-top    : 10px;
+            margin-bottom : 2.5cm;
+            padding-top   : 10px;
+            padding-bottom: 10px;
+
+            dt {
+                width: 50%;
+            }
+
+            dd {
+                width     : 25%;
+                text-align: right;
+            }
+        }
+        // .print_logo {
+        //     margin: 1cm auto 2cm;
+        //     @include size(566px, 130px);
+        //     background: url($img-url + $img-print-logo) no-repeat center;
+        //     background-size: 566px, 130px;
+        // }
+        dl {
+            display      : table;
+            width        : 100%;
+            margin-bottom: 0.3cm;
+            font-size    : 12px * 4;
+
+            dt {
+                display     : table-cell;
+                padding-left: 1cm;
+                // text-align: right;
+                white-space : nowrap;
+                width       : 25%;
+            }
+
+            dd {
+                display      : table-cell;
+                box-sizing   : border-box;
+                padding-left : 1cm;
+                padding-right: 1cm;
+                text-align   : left;
+                // width        : 80%;
+            }
+        }
+    }
+}

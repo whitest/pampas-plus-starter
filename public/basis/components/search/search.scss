@@ -1,0 +1,12 @@
+/* 搜索框 样式 */
+@import "./box/box";
+@import "./suggest/suggest";
+@import "./switches/switches";
+@import "./result/result";
+
+.component__search {
+    display : inline-block;
+    position: relative;
+    // width   : 340px;
+    // height  : 40px;
+}

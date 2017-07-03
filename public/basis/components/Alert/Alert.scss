@@ -1,0 +1,27 @@
+/* 强提示弹窗 样式 */
+
+.component___alert {
+    .component___alert_main {
+        width: 400px;
+
+        .component___alert_msg {
+            // 文字
+            display   : table;
+            width     : 100%;
+            min-height: 130px;
+            text-align: center;
+
+            p {
+                display       : table-cell;
+                width         : 100%;
+                font-size     : 14px;
+                vertical-align: middle;
+            }
+        }
+
+        .component___alert_btns {
+            // 按钮区域
+            @extend %componentPopupBtns;
+        }
+    }
+}

@@ -1,0 +1,25 @@
+.contract
+    h2 contract
+    
+    h3 1.模板
+    h5.demo
+      pre(hljs hljs-language="javascript")
+         |component-contract(
+         |     config="contractConfig"
+         |)
+         
+    h3 2.实例
+    h5
+      component-button.button(
+          type='first' 
+          ng-click="clickEvent()" 
+          btn-name="打印合同"
+      )
+      input(type="button", name="printBtn", ng-show="hideBtn", print-btn="")
+    component-contract(
+    config="contractConfig"
+    )
+      
+    h3 3.描述
+    h5
+      |contractConfig就是打印合同所需要的数据，$scope.contractConfig = xxx;

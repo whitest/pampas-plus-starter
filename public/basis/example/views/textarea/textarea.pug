@@ -1,0 +1,35 @@
+.textarea
+    h2 textarea
+    h3 1.模板
+    h5.demo 
+      pre(hljs hljs-language="javascript")  
+         | component-textarea(
+         |    model="textarea"
+         |    textareaName="textareaName" 
+         |    placeholder="文本域"
+         |    textareaClass="componentTextarea"
+         |    maxlength="maxlength"
+         |)
+        
+    h3 2.实例
+    h5
+      component-textarea(
+          model="textareaModel"
+          textareaName="textareaName" 
+          placeholder="文本域"
+          textareaClass="componentTextarea"
+          maxlength="maxlength"
+          ng-focus="focusEvent()"
+          ng-blur="blurEvent()"
+      )
+      .self_input
+          .leftWords 可输入的文字的最大长度
+          input.maxLengthShow(ng-model="lengthValue" ng-change="inputChange()")
+          .parent_add
+              span.top(ng-click="topEvent()")
+              span.bottom(ng-click="bottomEvent()")
+      component-button.button(type='first' ng-click="clickEvent()" btn-name="打印文本框value值")
+      .show {{textareaShow}}
+    h3 3.描述
+    h5
+      |多行文本域组件是对原生testarea的封装

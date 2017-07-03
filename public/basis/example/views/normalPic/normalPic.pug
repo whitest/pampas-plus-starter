@@ -1,0 +1,48 @@
+.normalPic_module
+    h2 normalPic
+
+    h3 1.模板
+    h5.demo
+        pre(hljs hljs-language="javascript")
+            | component-normal-pic(
+            |   config=""
+            |   refresh=""
+            | )
+
+    h3 2.配置
+    h5(hljs hljs-language="javascript")
+        | /**
+        |  * 默认图片展示
+        |  * config=""  '='
+        |  * @type {Object} picConfig
+        |  * @param {String} type [默认背景图类型，'person' 人，'ware' 商品，如果字段为空，显示商品]
+        |  * @param {Object} style [一些私有样式，传入ng-style中，建议只设置宽高]
+        |  * 
+        |  * refresh=""  '='
+        |  * $scope.picRefresh('') [初始化或刷新图片]
+        |  */
+        |
+        | $scope.picConfig2 = {
+        |     style: {
+        |         width: '100px',
+        |         height: '100px',
+        |         borderRadius: '3px',
+        |     },
+        | };
+        |
+        | $scope.picConfig3 = {
+        |     type: 'person',
+        | };
+        |
+        | // 模拟详情图片获取更新
+        | $timeout(() => {
+        |     $scope.picRefresh1('http://p1.qhimg.com/t0128ccabe35bd7817a.jpg');
+        |     $scope.picRefresh2('http://static.oschina.net/uploads/img/201509/02224449_xCWs.jpg');
+        |     $timeout(() => $scope.picRefresh3('http://p1.qhimg.com/t0128ccabe35bd7817a.jpg'), 1000);
+        | }, 2000);
+
+    h3 3.实例
+    h5
+        <component-normal-pic refresh="picRefresh1"></component-normal-pic>
+        <component-normal-pic config="picConfig2" refresh="picRefresh2"></component-normal-pic>
+        <component-normal-pic config="picConfig3" refresh="picRefresh3"></component-normal-pic>

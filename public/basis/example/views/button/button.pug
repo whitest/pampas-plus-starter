@@ -1,0 +1,92 @@
+.button_module 
+  h2 button
+  
+  h3 1.模板
+  h5.demo  
+    pre(hljs hljs-language="javascript") 
+      | component-button(
+      |   type=""
+      |   btn-name=""
+      |   btn-class=""
+      |   btn-type=""
+      |   click=""
+      |   is-load=""
+      |   is-unclick=""
+      |   is-permission=""
+      |   no-permission=""
+      | )
+      
+  h3 2.实例
+  h5
+    component-button(
+      type="first"
+      btn-name="type=first"
+      btn-class="button_module_btn"
+      btn-type="button"
+      click=""
+      is-load=""
+      is-unclick=""
+      is-permission=""
+      no-permission=""
+    )
+    component-button(
+      type="normal"
+      btn-name="type=normal"
+      btn-class="button_module_btn"
+      btn-type="button"
+      click=""
+      is-load=""
+      is-unclick=""
+      is-permission=""
+      no-permission=""
+    )
+    component-button(
+      type="second"
+      btn-name="type=second"
+      btn-class="button_module_btn"
+      btn-type="button"
+      click=""
+      is-load=""
+      is-unclick=""
+      is-permission=""
+      no-permission=""
+    )
+  h5
+    component-button(
+      type="first"
+      btn-name="is-unclick=true"
+      btn-class="button_module_btn"
+      btn-type="button"
+      click=""
+      is-load=""
+      is-unclick="true"
+      is-permission=""
+      no-permission=""
+    )
+    component-button(
+      type="normal"
+      btn-name="is-unclick=true"
+      btn-class="button_module_btn"
+      btn-type="button"
+      click=""
+      is-load=""
+      is-unclick="true"
+      is-permission=""
+      no-permission=""
+    )
+    component-button(
+      type="second"
+      btn-name="is-unclick=true"
+      btn-class="button_module_btn"
+      btn-type="button"
+      click=""
+      is-load=""
+      is-unclick="true"
+      is-permission=""
+      no-permission=""
+    )
+  h3 3.属性
+  h5.desc
+    dl(ng-repeat="r in descriptList")
+      dt {{r.title}}
+      dd {{r.desc}}  

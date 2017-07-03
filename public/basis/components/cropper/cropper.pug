@@ -1,0 +1,40 @@
+//- 截图功能组件 pug模板 
+.component__cropper
+
+    .component__cropper_box(
+        component-popup 
+        pop-close="popClose" 
+        pop-open="popOpen" 
+        pop-is-btn="true"
+    )
+        .component__cropper_main
+            ui-cropper(
+                image="myImage" 
+                result-image="myCroppedImage" 
+                area-type="{{areaType}}" 
+                aspect-ratio="aspectRatio" 
+                area-min-size="minSize" 
+                result-image-size="resultSize"
+            )
+
+        input.component__cropper_file(
+            type="file" 
+            name="avatar" 
+            id="cropperFileInput" 
+            accept="image/gif,image/jpeg,image/jpg,image/tiff,image/png"
+        )
+
+        .component__cropper_btns
+            .component__popup_btn_box
+                component-button(
+                    type="normal" 
+                    btn-class="component__popup_btn" 
+                    btn-name="取消" 
+                    click="close()"
+                )
+                component-button(
+                    type="first" 
+                    btn-class="component__popup_btn" 
+                    btn-name="确定" 
+                    click="cropperEvent()"
+                )

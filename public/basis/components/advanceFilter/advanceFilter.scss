@@ -1,0 +1,121 @@
+/* 高级筛选 样式 */
+.component__advance_filter {
+    .component__advance_filter_main {
+        overflow       : visible;
+        display        : table;
+        width          : 100%;
+        border         : 1px solid;
+        border-color   : map-get(map-get($color-fixed-map, 'border'), 'b1');
+        border-collapse: collapse;
+
+        &.single {
+            margin-top: 0;
+        }
+
+        > dl {
+            display      : table-row;
+            border-bottom: 1px solid;
+            border-color : map-get(map-get($color-fixed-map, 'border'), 'b1');
+
+            &:first-child {
+                dd {
+                    border-top: 0;
+                }
+            }
+
+            dt {
+                display       : table-cell;
+                box-sizing    : border-box;
+                padding       : 10px 20px;
+                width         : 100px;
+                @include baseThemeBgColor( 'app', 'bg');
+                white-space   : nowrap;
+                vertical-align: top;
+            }
+
+            dd {
+                display         : table-cell;
+                box-sizing      : border-box;
+                padding         : 5px 0 5px 26px;
+                background-color: map-get(map-get($color-light-map, 'form'), 'zebra');
+
+                > .normal_list {
+                    position: relative;
+                    overflow: hidden;
+                    height  : 30px;
+
+                    &.show_all {
+                        height: auto;
+                    }
+
+                    > .all {
+                        display : block;
+                        // @include abs(0,0);
+                        padding : 6px 10px;
+                        cursor  : pointer;
+                        position: absolute;
+                        top     : 0;
+                        left    : 0;
+                        // @extend %border-radius;
+                        &.on,
+                        &.on:hover {
+                            @include baseThemeColor( 'first', 'deep');
+                        }
+
+                        &:hover {
+                            // background: $color-select-more-li-hover-bg;
+                        }
+                    }
+
+                    > ul {
+                        padding-left : 64px;
+                        padding-right: 118px;
+                        @extend %baseCommonClearFix;
+
+                        li {
+                            float       : left;
+                            margin-right: 30px;
+                            // margin-bottom: 16px;
+                            padding     : 6px 10px;
+                            cursor      : pointer;
+                            // @extend %border-radius;
+                            &.on,
+                            &.on:hover {
+                                @include baseThemeColor( 'first', 'deep');
+                            }
+
+                            &:hover {
+                                // background: $color-select-more-li-hover-bg;
+                            }
+                        }
+                    }
+
+                    > .more {
+                        position: absolute;
+                        right   : 30px;
+                        top     : 6px;
+                    }
+                }
+            }
+        }
+    }
+
+    > p {
+        height     : 47px;
+        line-height: 47px;
+        font-size  : 12px;
+        color      : map-get(map-get($color-fixed-map, 'main'), 'first');
+
+        span {
+            display        : inline-block;
+            padding-left   : 31px;
+            background     : url($img-warning) no-repeat 10px center;
+            background-size: 16px;
+
+            strong {
+                font-weight: 400;
+                @include baseThemeColor( 'second', 'main');
+            }
+        }
+    }
+}

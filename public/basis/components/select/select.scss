@@ -1,0 +1,61 @@
+/* 下拉框组件 样式 */
+.component__select {
+    display : inline-block;
+    position: relative;
+    width   : 180px;
+
+    .component__select_box {
+        position: relative;
+        width   : 100%;
+
+        .component__select_input {
+            width: 100%;
+        }
+
+        > em {
+            display      : block;
+            position     : absolute;
+            top          : 10px;
+            right        : 10px;
+            border-left  : 5px solid transparent;
+            border-right : 5px solid transparent;
+            border-top   : 10px solid map-get(map-get($color-fixed-map, 'aid'), 'w3');
+            border-bottom: 0;
+            z-index      : 1;
+
+            &.open {
+                // 打开
+                border-left  : 5px solid transparent;
+                border-right : 5px solid transparent;
+                border-top   : 0;
+                border-bottom: 10px solid map-get(map-get($color-fixed-map, 'aid'), 'w3');
+            }
+        }
+    }
+
+    .component__select_option {
+        // 下拉选项
+        position     : absolute;
+        top          : 32px;
+        overflow-y   : auto;
+        box-sizing   : border-box;
+        padding      : 10px 0;
+        width        : 100%;
+        max-height   : 140px;
+        background   : #FFF;
+        border-radius: 3px;
+        @include baseBorderMain();
+        z-index      : 11;
+
+        li {
+            padding: 6px 10px;
+            // color  : map-get(map-get($color-fixed-map, 'aid'), 'w2');
+            color: map-get(map-get($color-fixed-map, 'main'), 'first');
+            cursor : pointer;
+
+            &:hover {
+                @include baseThemeBgColor( 'app', 'bg');
+            }
+        }
+    }
+}

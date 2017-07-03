@@ -1,0 +1,14 @@
+.popup_module {
+    .popup_demo {
+        .self__main {
+            width: 600px;
+        }
+        .self__box {
+          
+        }
+        .self__btns {
+            // 按钮区域
+            @extend %componentPopupBtns;
+        }
+    }
+}

@@ -1,0 +1,47 @@
+/* 修改密码 样式 */
+.component__change_pwd {
+    .pop_box {
+        width           : 495px;
+        height          : 440px;
+        border-radius   : 5px;
+        background-color: map-get(map-get($color-light-map, 'alert'), 'bg');
+
+        > .pop_main {
+            > h4 {
+                margin-bottom: 40px;
+                font-size    : 20px;
+                font-weight  : normal;
+                text-align   : center;
+                color        : map-get(map-get($color-fixed-map, 'main'), 'first');
+            }
+
+            > div {
+                text-align   : center;
+                margin-bottom: 10px;
+                font-size    : 0;
+
+                .pwdreset_input {
+                    width: 270px;
+                }
+
+                .pwdreset_code {
+                    width       : 170px;
+                    margin-right: 10px;
+                }
+
+                .pwdreset_code_btn {
+                    width     : 90px;
+                    height    : 30px;
+                    padding   : 0;
+                    font-size : 12px;
+                    text-align: center;
+                }
+            }
+        }
+
+        > .pop_btn {
+            text-align: center;
+            @extend %componentPopupBtns;
+        }
+    }
+}

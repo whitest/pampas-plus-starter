@@ -1,0 +1,12 @@
+//- 左侧导航菜单 pug模板
+.component__left_menu
+    component-shop-logo
+    ul.menu_main
+        li(
+            ng-repeat="r in menuList" class="{{r.icon}}" 
+            ng-class="{'active':onChecked==r.menuId}" 
+            ng-click="clickEvent(r,$index)" 
+            ng-mouseenter="mouseenterEvent(r)" 
+            ng-mouseleave="mouseleaveEvent(r)"
+        )
+            span(ng-show="r.show" ng-bind="r.menuName")

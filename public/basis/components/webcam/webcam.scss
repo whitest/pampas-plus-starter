@@ -1,0 +1,16 @@
+/* 拍照功能组件 样式 */
+.component__webcam {
+    width: 286px;
+
+    .component__webcam_zone {
+        margin          : 24px;
+        width           : 238px;
+        height          : 168px;
+        background-color: map-get(map-get($color-fixed-map, 'border'), 'b3');
+    }
+
+    .component__webcam_btns {
+        // 按钮区域
+        @extend %componentPopupBtns;
+    }
+}

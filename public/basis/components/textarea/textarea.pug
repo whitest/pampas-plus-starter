@@ -1,0 +1,10 @@
+//- 多行文本域组件 pug模板 
+.component__textarea
+    textarea(
+        name="{{textareaName}}" 
+        class="{{textareaClass}}" 
+        ng-model="model" 
+        ng-class="{'focus': isFocus}" 
+        placeholder="{{placeholder}}"
+        maxlength="{{maxlength}}"
+    )

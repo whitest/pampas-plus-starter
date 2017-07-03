@@ -1,0 +1,13 @@
+/* 一级返回按钮，通常用在关闭子页面或子弹窗等 样式 */
+.component__top_back {
+    display        : inline-block;
+    box-sizing     : border-box;
+    padding-left   : 4px;
+    width          : 74px;
+    height         : 30px;
+    line-height    : 30px;
+    text-align     : center;
+    background     : url($img-top-back) no-repeat center;
+    background-size: 100%;
+    cursor         : pointer;
+}

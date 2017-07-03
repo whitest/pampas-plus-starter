@@ -1,0 +1,97 @@
+//- 高级筛选 pug模板
+.component__advance_filter(ng-class="!!filterClass?filterClass:''" ng-show="!!filterShow")
+    .component__advance_filter_main
+        dl(ng-repeat="(navKey, nav) in filterNav" ng-if="!filterIgnore[navKey]")
+            dt {{nav.title}}
+            dd
+                //- 普通筛选list
+                .normal_list(ng-class="{'show_all':nav.normalListShowAll}" ng-if="!nav.type||'normalList'==nav.type")
+                    span.all(
+                        ng-class="''===nav.value?'on':''"
+                        ng-click="normalListChooseAll(navKey)"
+                        ng-if="nav.list[0].index==''"
+                    ) {{nav.list[0].title}}
+                    ul(id="{{navKey}}")
+                        li(
+                            ng-repeat="r in nav.list"
+                            ng-class="r.index===nav.value?'on':''"
+                            ng-click="chooseEvent(r, navKey)"
+                            ng-if="0!==$index"
+                        ) {{r.title}}
+                    span.more(ng-if="nav.isMore")
+                        a(ng-click="normalListMore(nav)") {{nav.normalListShowAll?'收起':'更多'}}
+
+                //- 单一日期类型筛选项
+                component-date-time(
+                    type="{{nav.dataType || 'date'}}"
+                    model="nav.value"
+                    resolve="dateChangeEvent(nav.value, navKey)"
+                    min="{{nav.min || ''}}"
+                    max="{{nav.max || ''}}"
+                    clear="nav.clear"
+                    ng-if="'date'==nav.type"
+                )
+
+                //- 日期范围类型筛选项
+                div(ng-if="'dateArea'==nav.type")
+                    component-date-time(
+                        type="{{nav.dataType || 'date'}}"
+                        model="nav.area.start.value"
+                        resolve="dateAreaChangeEvent(nav.area.start.value, navKey, 'start')"
+                        min="{{nav.area.start.min || ''}}"
+                        max="{{nav.area.start.max || ''}}"
+                        clear="nav.area.start.clear"
+                        end-value="{{nav.area.start.limitValue}}"
+                    )
+                    | {{nav.centerWords || '至'}}
+                    component-date-time(
+                        type="{{nav.dataType || 'date'}}"
+                        model="nav.area.end.value"
+                        resolve="dateAreaChangeEvent(nav.area.end.value, navKey, 'end')"
+                        min="{{nav.area.end.min || ''}}"
+                        max="{{nav.area.end.max || ''}}"
+                        clear="nav.area.end.clear"
+                        start-value="{{nav.area.end.limitValue}}"
+                    )
+
+                //- 输入框类型筛选项
+                div(ng-if="'input'==nav.type")
+                    | {{nav.before}}
+                    component-input(
+                        model="nav.value"
+                        input-type="normal"
+                        input-class=""
+                        input-name=""
+                        placeholder=""
+                        is-disabled="false"
+                    )
+                    | {{nav.after}}
+                    component-button(
+                        type="first"
+                        btn-class=""
+                        btn-name="{{nav.btnTitle}}"
+                        click="inputFilterEvent(nav)"
+                    )
+
+                //- 文本框类型筛选项（基本废弃）
+                input.glo_input_text(
+                    type="text"
+                    ng-model="nav.value"
+                    ng-if="'text'==nav.type"
+                    placeholder="{{nav.placeholder || ''}}"
+                    ng-change="textChangeEvent(nav,navKey)"
+                )
+                //- 电话类型筛选项（基本废弃）
+                input.glo_input_text(
+                    type="text" 
+                    ng-model="nav.value" 
+                    ng-if="'tel'==nav.type" 
+                    placeholder="{{nav.placeholder || ''}}" 
+                    ng-change="telChangeEvent(nav.value,navKey)"
+                )
+
+    p(ng-if="filterTotal>=0")
+        span
+            | 共筛选出
+            strong {{filterTotal}}
+            | 条数据

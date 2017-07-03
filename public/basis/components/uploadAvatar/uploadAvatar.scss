@@ -1,0 +1,41 @@
+/* 生成头像功能 样式 */
+.component__upload_avatar {
+    display: inline-block;
+    width  : 103px;
+
+    .component__upload_avatar_img {
+        // 头像
+        display: inline-block;
+        width  : 103px;
+        height : 103px;
+    }
+
+    .component__upload_avatar_ctrl {
+        // 操作区域
+        display   : inline-block;
+        box-sizing: border-box;
+        margin-top: 6px;
+        padding   : 0 6px;
+        width     : 103px;
+        @extend %baseCommonClearFix;
+
+        em {
+            display        : inline-block;
+            width          : 36px;
+            height         : 36px;
+            font-style     : normal;
+            background-size: 100%;
+            cursor         : pointer;
+
+            &.component__upload_avatar_carema {
+                float           : left;
+                background-image: url($img-avatar-carema);
+            }
+
+            &.component__upload_avatar_file {
+                float           : right;
+                background-image: url($img-avatar-file);
+            }
+        }
+    }
+}

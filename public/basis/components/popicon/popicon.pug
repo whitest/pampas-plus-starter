@@ -1,0 +1,10 @@
+//- 气泡图标组件 pug模板 
+div(class="component__popicon {{selfClass}}")
+    span(ng-class="{'show':popshow}") {{title}}
+    p(
+        class="{{baseClass}} {{iconBgClass}}" 
+        ng-class="{'no_permission': isPermission&&!noPermission,'un_click':unClick}" 
+        ng-mouseenter="hoverEnterEvent()" 
+        ng-mouseleave="hoverLeaveEvent()" 
+        ng-click="clickEvent($event)"
+    )

@@ -1,0 +1,63 @@
+.paging_module
+  h2 paging
+  
+  h3 1.模板
+  h5.demo
+    pre(hljs hljs-language="javascript")
+      | component-paging(
+      |   page-info=""
+      |   self-class=""
+      |   page-init=""
+      | )
+  
+  h3 2.配置
+  h5(hljs hljs-language="javascript")
+    | $scope.pageInfo1 = {
+    |     // 控制是否可改变limit大小，配合sizeResolve()回调
+    |     hasPageSize: false, 
+    |     // 控制是否显示
+    |     show: true,
+    |     // 数据总数 
+    |     total: 50, 
+    |     // 初始页或当前页
+    |     page: 1, 
+    |     // 一次请求多少条
+    |     limit: limit1, 
+    |     // 点击页码的回调
+    |     action: (page) => {
+    |         offset1 = limit1 * (page - 1);
+    |         $scope.current = `第${page}页，当前offset:${offset1}`;
+    |     },
+    | };
+    |
+    | $scope.pageInfo2 = {
+    |     hasPageSize: true,
+    |     show: true,
+    |     total: 50,
+    |     page: 1,
+    |     limit: limit2,
+    |     action: (page) => {
+    |         offset2 = limit2 * (page - 1);
+    |         $scope.current = `当前limit:${limit2}`;
+    |     },
+    |     // 选择limit大小的回调
+    |     sizeResolve: (size) => {
+    |         limit2 = size;
+    |     },
+    | };
+    | 
+    
+  h3 3.实例
+  h5
+    component-paging(
+      page-info="pageInfo1"
+      self-class=""
+      page-init=""
+    )
+    component-paging(
+      page-info="pageInfo2"
+      self-class=""
+      page-init=""
+    )
+  h5.demo
+    | {{current}}

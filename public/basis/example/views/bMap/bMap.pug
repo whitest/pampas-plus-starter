@@ -1,0 +1,49 @@
+.bMap
+    h2 bMap
+    h3 1.模板
+    h5.demo
+      pre(hljs hljs-language="javascript")
+          |component-b-map(
+          |    info="bMapInfo",
+          |    init-no-info="bMapInit",
+          |    set-city-center="bMapInitSet" 
+          |)
+    h3 2.实例
+    h5.self__location_info
+        dl
+          dt *所在地区：
+          |             
+          dd
+            component-select(config="shopAreaConfig1", init="shopAreaInit1")
+          |             
+          dd
+            component-select(config="shopAreaConfig2", init="shopAreaInit2")
+          |             
+          dd
+            component-select(config="shopAreaConfig3", init="shopAreaInit3")
+        |         
+        dl
+          dt *详细地址：
+          |             
+          dd
+            component-input(model="bMapInfo.addressInput", input-id="editAddress", input-type="normal", input-class="location_info_input", input-name="", placeholder="", is-disabled="false")
+        |         
+        dl
+          dt
+          |             
+          dd
+            component-b-map(
+                info="bMapInfo",
+                init-no-info="bMapInit",
+                set-city-center="bMapInitSet" 
+                style="width: 410px; height: 300px;display: block;"
+            )
+              
+    h3 3.描述
+    h5
+      pre(hljs hljs-language="javascript")
+          | $scope.bMapInfo = {
+          |     id: 'editAddress',
+          | };
+    h5 配置id,下拉框信息通过bMapInitSet方法进行地图交互
+    h5.demo 注：下拉框信息暂时手写代替查看效果，实际操作需要请求相应借口;

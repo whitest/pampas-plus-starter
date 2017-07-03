@@ -1,0 +1,42 @@
+.navTabs_moudle
+  h2 navTabs
+  
+  h3 1.模板
+  h5.demo
+    pre(hljs hljs-language="javascript")
+      | component-nav-tabs(
+      |   nav-tabs-list=""
+      |   init-on=""
+      |   click=""
+      | )
+      
+  h3 2.实例
+  h5.demo
+    pre(hljs hljs-language="javascript")
+      | $scope.nav = [{title: '签到',index: 1}, {title: '签退',index: 2}, {title: '收银',index: 3}];
+      |
+      | component-nav-tabs(
+      |    nav-tabs-list="nav"  // '='
+      |    init-on=""           // '=?'
+      |    click="navClickEvent"// '='
+      | )
+  h5
+    component-nav-tabs(
+       nav-tabs-list="nav"
+       init-on="initOn"
+       click="navClickEvent"
+    )
+    p {{content}}
+    
+  h3 3.描述
+  h5.desc
+    dl
+      dt nav-tabs-list
+      dd 导航list，每项的内容为{title:'',index:''},title为导航的内容，第二项字段可以自定义，在业务逻辑中通过click传入参数调用。
+    dl
+      dt init-on
+      dd 用于初始化时，默认选中的index，但不执行click事件。 例如：$scope.initOn(0);
+    dl
+      dt click
+      dd 点击导航触发的事件，在js中调用时需传参。例如：$scope.navClickEvent = (r) => {}
+    

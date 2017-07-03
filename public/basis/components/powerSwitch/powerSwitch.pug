@@ -1,0 +1,5 @@
+//- 滑动开关组件 pug模板 
+.component__power_switch(ng-click="clickEvent($event)")
+    span {{titleLeft}}
+    span {{titleRight}}
+    em(ng-class="{'on':isChecked}") {{titleOn}}

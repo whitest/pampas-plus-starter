@@ -1,0 +1,8 @@
+//- 弱提示 pug模板 
+div(
+    class="component__popalert {{popAlertType}}" 
+    ng-style="styles"
+)
+    i
+    p(ng-bind="msg")
+    em(ng-click="closeEvent()")

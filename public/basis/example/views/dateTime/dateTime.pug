@@ -1,0 +1,102 @@
+.dateTime
+    h2 dateTime
+    
+    h3 1.模板
+    h5
+      pre(hljs hljs-language="javascript")
+          |component-date-time(
+          |    type="time" 
+          |    model="time" 
+          |    resolve="timeResolve()"
+          |    is-disabled="timeDisabled"
+          |)
+    
+    h3 2.实例
+    h4.demo time
+    h5
+        component-date-time(
+            type="time" 
+            model="time" 
+            resolve="timeResolve()"
+            is-disabled="timeDisabled"
+        )
+        component-button(
+            type="first"
+            btn-name="{{timeDisabled ? 'normal' : 'disabled'}}"
+            click="timeClick()"
+        )
+        .dateShow(ng-if="timeIf") {{timeShow}}
+    h4.demo month
+    h5
+        component-date-time(
+            type="month"
+            model="month"
+            resolve="monthResolve()"
+            is-disabled="monthDisabled"
+        )
+        component-button(
+            type="first"
+            btn-name="{{monthDisabled ? 'normal' : 'disabled'}}"
+            click="minthClick()"
+        )
+        .dateShow(ng-if="monthIf") {{monthShow}}
+    
+    h4.demo dateTime
+    h5
+        component-date-time(
+            type="dateTime"
+            model="dateTime"
+            resolve="dateTimeResolve()"
+            is-disabled="dateTimeDisabled"
+        )
+        component-button(
+            type="first"
+            btn-name="{{dateTimeDisabled ? 'normal' : 'disabled'}}"
+            click="dateTimeClick()"
+        )
+        .dateShow(ng-if="dateTimeIf") {{dateTimeShow}}
+        
+    h4.demo date
+    h5
+        component-date-time(
+            type="date"
+            model="startDate"
+            resolve="dateResolve1()"
+            end-value="{{endDate}}"
+            is-disabled="dateDisabled"
+        )
+        |至
+        component-date-time(
+            type="date"
+            model="endDate"
+            resolve="dateResolve2()"
+            start-value="{{startDate}}"
+            is-disabled="dateDisabled"
+        )
+        component-button(
+            type="first"
+            btn-name="{{dateDisabled ? 'normal' : 'disabled'}}"
+            click="dateClick()"
+        )
+        .dateShow.dateShow2(ng-if="dateIf") {{dateShow}}
+
+    h3 3.描述
+    h5.desc.setting
+        dl 
+          dt type:
+          dd 日期选择框的类型，包括(time/month/dateTime/date)
+        dl
+          dt model:
+          dd 绑定scope
+        dl
+          dt resolve:
+          dd 回调函数
+        dl
+          dt start-value
+          dd 开始的日期值
+        dl
+          dt end-value
+          dd 结束的日期值
+        dl
+          dt is-disabled
+          dd 是否可用

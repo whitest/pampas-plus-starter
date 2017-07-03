@@ -1,0 +1,51 @@
+.colors
+    h2 颜色获取汇总
+    h3(style="color:{{colorsShowColor || '#000'}}")
+        | 点击颜色可复制相应的颜色scss代码到剪切板
+        | {{colorsShow}}
+
+    h4 可变颜色
+    ul
+        li(ng-repeat="c in replaceableColor")
+            div(style="background-color:{{c.value}}" ng-click="chooseColorEvent(c.value, c.color)")
+            span {{c.value}}
+            p
+                a(ng-click="chooseColorEvent(c.value, c.color)") color
+            p
+                a(ng-click="chooseColorEvent(c.value, c.background)") background
+            p
+                a(ng-click="chooseColorEvent(c.value, c.border)") border
+            p
+                a(ng-click="chooseColorEvent(c.value, c.boxShadow)") box-shadow
+
+
+    h4 固定颜色
+    ul
+        li(ng-repeat="c in fixedColor")
+            div(style="background-color:{{c.value}}" ng-click="chooseColorEvent(c.value, c.color)")
+            span {{c.value}}
+            p
+                a(ng-click="chooseColorEvent(c.value, c.color)") color
+            p
+                a(ng-click="chooseColorEvent(c.value, c.background)") background
+            p
+                a(ng-click="chooseColorEvent(c.value, c.border)") border
+            p
+                a(ng-click="chooseColorEvent(c.value, c.boxShadow)") box-shadow
+
+
+    h4 清色级颜色
+    ul
+        li(ng-repeat="c in lightColor")
+            div(style="background-color:{{c.value}}" ng-click="chooseColorEvent(c.value, c.color)")
+            span {{c.value}}
+            p
+                a(ng-click="chooseColorEvent(c.value, c.color)") color
+            p
+                a(ng-click="chooseColorEvent(c.value, c.background)") background
+            p
+                a(ng-click="chooseColorEvent(c.value, c.border)") border
+            p
+                a(ng-click="chooseColorEvent(c.value, c.boxShadow)") box-shadow
+
+    textarea#colorsText

@@ -1,0 +1,39 @@
+/* 基础边框配置 底层scss变量、常量、样式、方法等封装 */
+/*
+ *  普通变量：$border-name: {value};
+ *
+ *  数组变量：$border-name-arr: (arg1, arg2);
+ *
+ *  map变量：$border-name-map: (key1: value1, key2: value2);
+ *
+ *  mixin方法封装：@mixin baseBorderName($args){}
+ *
+ *  function方法封装：@function baseBorderName($args){}
+ *
+ *  占位符封装：%baseBorderName{}
+ */
+/**
+ * 1像素border方法
+ * $color {string} 色值 默认： #d6dbdf
+ * $position {string} 方位
+ */
+@mixin baseBorder1px($color: map-get(map-get($color-fixed-map, 'border'), 'b1'), $position: 'top') {
+    border-#{$position}: {
+        width: 1px;
+        style: solid;
+        color: $color;
+    };
+};
+/**
+ * 设置border
+ * $width {string} border-width 值
+ * $color {string} 色值 默认： #d6dbdf
+ * $style {string} border-style 值
+ */
+@mixin baseBorderMain($width: 1px, $color: map-get(map-get($color-fixed-map, 'border'), 'b1'), $style: solid) {
+    border: {
+        width: $width;
+        style: $style;
+        color: $color;
+    };
+}

@@ -1,0 +1,39 @@
+.popicon_module
+  h2 popicon
+  
+  h3 1.模板
+  h5(hljs hljs-language="javascript")
+    | component-popicon(
+    |   base-type=""
+    |   pop-title=""
+    |   icon-class=""
+    |   self-class=""
+    |   is-permission=""
+    |   no-permission=""
+    |   click=""
+    |   un-click=""
+    | )
+    
+  h3 2.实例
+  h5
+    span(ng-repeat = "r in popIconBase") {{r.type}}
+       component-popicon(
+           base-type="{{r.type}}"
+           pop-title="{{r.title}}"
+           icon-class=""
+           self-class="icon"
+           is-permission=""
+           no-permission=""
+           click=""
+           un-click=""
+       )
+       | &nbsp;&nbsp;&nbsp;&nbsp;
+  
+  h3 3.描述
+  h5.desc
+    dl  
+      dt base-type
+      dd 气泡类型
+    dl
+      dt pop-title
+      dd 气泡内容

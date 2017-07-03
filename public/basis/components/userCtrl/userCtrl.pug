@@ -1,0 +1,13 @@
+//- 用户退出登录 pug模板 
+.component__user_ctrl
+    .user_ctrl(ng-dropover ng-dropover-options="{{config}}")
+        .uesr_ctrl_icon
+        .user_ctrl_main(ng-dropover-contents ng-mouseleave="mouseleaveEvent()")
+            .user_info
+                .user_pic
+                    component-normal-pic(config="picConfig" refresh="picRefresh")
+                span {{adminName}}
+            .password(ng-click="restPassword()")
+                span 修改密码
+            .quit(ng-click="signOut()")
+                span 退出登录

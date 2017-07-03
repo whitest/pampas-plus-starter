@@ -1,0 +1,19 @@
+//- 顶部二级菜单导航 pug模板 
+.component__top_bar
+    .topBack
+        component-top-back(
+            click="topBackClick()" 
+            title="返回" 
+            ng-if="showBack"
+        )
+    .navTabs
+        component-nav-tabs(
+            nav-tabs-list="secondNavArr" 
+            click="navTabsClick" 
+            init-on="secondInitOn" 
+            ng-show="!!secondNavArr||!!secondNavArr.length"
+        )
+    .ctrl
+        component-shops(ng-if="showMsgAndShops")
+        component-msg(ng-if="showMsgAndShops")
+        component-user-ctrl

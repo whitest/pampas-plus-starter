@@ -1,0 +1,21 @@
+/* 基础动画配置 底层scss变量、常量、样式、方法等封装 */
+/*
+ *  普通变量：$animate-name: {value};
+ *
+ *  数组变量：$animate-name-arr: (arg1, arg2);
+ *
+ *  map变量：$animate-name-map: (key1: value1, key2: value2);
+ *
+ *  mixin方法封装：@mixin baseAnimateName($args){}
+ *
+ *  function方法封装：@function baseAnimateName($args){}
+ *
+ *  占位符封装：%baseAnimateName{}
+ */
+@mixin baseAnimateTransition($args...) {
+    transition        : $args;
+};
+
+@mixin baseAnimateTransform($args...) {
+    transform        : $args;
+};

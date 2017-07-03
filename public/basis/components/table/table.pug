@@ -1,0 +1,97 @@
+//- 表格组件 pug模板 
+.component__table
+    .component__table_main
+        table(ng-class="{'component__table_border': ClassBorder, 'component__table_for_info': ClassThinPadding}")
+            thead
+                tr
+                    th(ng-if="isCheckbox" nowrap)
+                        component-checkbox(
+                            is-checked="allChecked" 
+                            click="chooseAll()"
+                        )
+                    th(ng-if="isRadio" nowrap)
+                    th(ng-repeat="h in head" width="{{h.width||'auto'}}")
+                        div(
+                            ng-class="{'pointer': h.sort!=null}" 
+                            ng-click="h.sort!=null?sortEvent(h):null"
+                        )
+                            | {{h.title}}
+                            span.sort(ng-if="h.sort!=null")
+                                em(ng-class="{'on':h.sort==1}")
+                                i(ng-class="{'on':h.sort==-1}")
+                    th(ng-if="isControl" nowrap) 操作
+            tbody
+                tr(
+                    ng-repeat="(_index, b) in body"
+                    ng-class="{'even': $index % 2 != 0}" 
+                    ng-click="trClick(b)" 
+                    ng-mouseenter="b.tableHover=true" 
+                    ng-mouseleave="b.tableHover=false"
+                )
+                    td(ng-if="isCheckbox" nowrap)
+                        component-checkbox(is-checked="b.tableChecked")
+
+                    td(ng-if="isRadio" nowrap)
+                        component-radio(is-checked="b.tableChecked")
+
+                    td(ng-repeat="f in fields" nowrap)
+                        
+                        //- 文字过长会省略
+                        .component__table_col(
+                            ng-if="!!ellipsis[f]"
+                            title="{{b[f]}}"
+                        )
+                            span {{b[f]}}
+                            i
+                        
+                        //- 正常显示的文字
+                        span(ng-if="!pics[f]&&!coachTag[f]&&!links[f]&&!powerSwitches[f]&&!ellipsis[f]" ) {{b[f]}}
+
+                        .component__table_coach_tag(ng-if="!!coachTag[f]")
+                            ul
+                                li(ng-repeat="c in b[f]") {{c.coachGroupName}}
+                                li.more(ng-click="coachTagEvent($event, f, b)")
+
+                        component-normal-pic(config="b[f+'PictrueConfig']" ng-if="pics[f]")
+
+                        component-power-switch(
+                            config="b[f+'PowerSwitch']" 
+                            father-date="b" 
+                            ng-if="powerSwitches[f]"
+                        )
+
+                        a(
+                            ng-repeat="(linkIndex, l) in links[f]" 
+                            ng-class="{'first': linkIndex==0, 'no_permission':l.isPermission&&!l.noPermission, 'unclick':!!b[l.unclick]}" 
+                            is-permission="{{l.isPermission}}" 
+                            no-permission="!l.noPermission" 
+                            ng-click="linkClickEvent($event, l, b, _index)"
+                            ng-if="links[f]"
+                        ) {{l.title}}
+
+                    td.ctrl(ng-if="isControl" nowrap)
+                        span(ng-show="!b.tableHover")
+                        div(ng-class="{'show':b.tableHover}")
+                            component-popicon(
+                                ng-repeat="c in config.control" 
+                                un-click="b[c.unclick]" 
+                                base-type="{{c.type}}" 
+                                pop-title="{{b[c.popTitle]}}" 
+                                self-class="icon" 
+                                click="c.clickEvent(b)" 
+                                is-permission="{{c.isPermission}}" 
+                                no-permission="c.noPermission"
+                            )
+        //- 空
+        .component__table_empty(
+            ng-class="{'component__table_empty_for_info': ClassThinPadding}" 
+            ng-style="emptyStyle" 
+            ng-if="!body || body.length==0"
+        )
+            div
+                em
+                p 暂无内容
+        
+    //- 左右阴影
+    em.component__table_shadow_left(ng-if="shadowLeft")
+    em.component__table_shadow_right(ng-if="shadowRight")

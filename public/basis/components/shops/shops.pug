@@ -1,0 +1,12 @@
+//- 店铺列表 pug模板 
+.component__shops
+    .shops(ng-dropover ng-dropover-options="{{config}}")
+        .shops_icon {{shopName}}
+        .shops_list(
+            ng-dropover-contents 
+            ng-show="shopList.length || level==0" 
+            ng-mouseleave="mouseleaveEvent()"
+        )
+            ul
+                li.chain(ng-click="toChainShop()" ng-show="level==0") 连锁页面&gt;
+                li(ng-repeat="r in shopList" ng-click="toSingleShop(r.shopId)") {{r.shopName}}

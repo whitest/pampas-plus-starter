@@ -1,0 +1,8 @@
+//- 标签页 顶部二级菜单 pug模板
+.component__nav_tabs
+    ul
+        li(
+            ng-repeat="r in navTabsList" 
+            ng-class="{active:checkedId==$index}" 
+            ng-click="navClick(r,$index)"
+        ) {{r.title}}

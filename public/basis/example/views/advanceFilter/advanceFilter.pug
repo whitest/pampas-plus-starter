@@ -1,0 +1,90 @@
+.advance_filter_module
+  h2 advanceFilter
+  
+  h3 1.模板
+  h5(hljs hljs-language="javascript")
+    | component-advance-filter(
+    |    filter-class=""
+    |    filter-nav: '=', 
+    |    filter-show: '=', 
+    |    filter-turn: '=?', 
+    |    filter-success: '&', 
+    |    filter-total: '=?', 
+    |  )
+
+  h3 2.实例
+  h5(hljs hljs-language="javascript")
+    |component-advance-filter(
+    |   filter-nav="advance"              // 主要筛选树
+    |   filter-total="filterTotal"        // 筛选的结果条数
+    |   filter-class="self__advance"
+    |   filter-show="show"
+    |   filter-turn="advanceTurn"         // 开关，控制filterShow   
+    |   filter-success="advanceSuccess()" // 筛选后的回调
+    | )
+    | $scope.advance = {
+    |     advance1: {
+    |         value: '',
+    |         title: '普通筛选:',
+    |         list: [{
+    |             title: '全部',
+    |             index: 0,
+    |         }, {
+    |             title: '筛选项1',
+    |             index: 1,
+    |         }, {
+    |             title: '筛选项2',
+    |             index: 2,
+    |         }],
+    |     },
+    |     advance2: {
+    |         title: '日期范围筛选:',
+    |         type: 'dateArea',
+    |         dataType: 'dateTime',
+    |         centerWords: '至',
+    |         area: {
+    |             start: {
+    |                 value: '',
+    |             },
+    |             end: {
+    |                 value: '',
+    |             },
+    |         },
+    |     },
+    |     advance3: {
+    |         value: '',
+    |         title: '单一日期筛选:',
+    |         type: 'date',
+    |     },
+    |     advance4: {
+    |         value: '',
+    |         title: '输入框筛选',
+    |         type: 'input',
+    |         btnTitle: '确定',
+    |         before: '超过',
+    |         after: '天未跟进',
+    |     },
+    | };
+  h5
+    component-button(
+      type="first"
+      btn-name="打开高级筛选"
+      btn-class="button_module_btn"
+      btn-type="button"
+      click="advanceEvent()"
+      is-load=""
+      is-unclick=""
+      is-permission=""
+      no-permission=""
+    )
+    .advance_filter_demo
+      component-advance-filter(
+         filter-nav="advance"
+         filter-total="filterTotal"
+         filter-class="self__advance"
+         filter-show="show"
+         filter-turn="advanceTurn" 
+         filter-success="advanceSuccess()"
+       ) 
+  h5.demo
+    | {{advanceParams}}

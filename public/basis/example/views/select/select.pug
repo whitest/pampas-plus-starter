@@ -1,0 +1,44 @@
+.select 
+    h2 select
+    h3 1.模板
+    h5.demo
+      pre(hljs hljs-language="javascript")
+        |component-select(
+        |   config="selectConfig" 
+        |   init="selectInit"
+        |)
+    h3 2.实例
+    h5
+      component-select(
+        config="selectConfig" 
+        init="selectInit"
+      )
+    h5 数据提取:
+      .selectShow {{selectValue}}
+          
+    h3 3.描述
+    h4 代码参考实现:
+    h5.demo 
+      pre(hljs hljs-language="javascript")
+          |$scope.selectConfig = {
+          |    checked: '',
+          |    style:  {
+          |        width: '130px',
+          |    },
+          |    words: 'name',
+          |    list: [{
+          |      name:'测试一',
+          |      index:1,
+          |    },{
+          |      name:'测试二',
+          |      index:2,
+          |    },{
+          |      name:'测试三',
+          |      index:3,
+          |    }],
+          |    resolve: (l) => {
+          |        $scope.selectValue = l;
+          |    },
+          |  };
+          
+      h4.bottom 通过配置selectConfig实现数据实现

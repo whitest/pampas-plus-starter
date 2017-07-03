@@ -1,0 +1,101 @@
+/* 店铺列表 样式 */
+.component__shops {
+    float: left;
+
+    > .shops {
+        > .shops_icon {
+            $img           : map-get($img-top-bar-ctrl-map,shops);
+            // width          : 24px;
+            height         : 60px;
+            max-width      : 150px;
+            line-height    : 60px;
+            padding-right  : 39px;
+            box-sizing     : border-box;
+            cursor         : pointer;
+            position       : relative;
+            background     : url($img) no-repeat right center;
+            background-size: 24px;
+            overflow       : hidden;
+            white-space    : nowrap;
+            text-overflow  : ellipsis;
+        }
+
+        > .shops_list {
+            position        : absolute;
+            width           : 216px;
+            padding-top     : 44px;
+            border-radius   : 3px;
+            background-color: #fff;
+            box-shadow      : 0 2px 4px 0 rgba(map-get(map-get($color-fixed-map, 'main'), 'second'), .1);
+            border          : solid 1px;
+            border-color    : map-get(map-get($color-fixed-map, 'border'), 'b2');
+            background-color: #fff;
+
+            .chain {
+                position        : absolute;
+                top             : 0;
+                left            : 0;
+                height          : 44px;
+                width           : 100%;
+                padding         : 0 14px;
+                box-sizing      : border-box;
+                line-height     : 44px;
+                font-size       : 14px;
+                cursor          : pointer;
+                background-color: map-get(map-get($color-light-map, 'form'), 'head2');
+                @include baseThemeColor( 'first', 'deep');
+            }
+
+            > ul {
+                max-height: 262px;
+                overflow-y: auto;
+
+                &:after,
+                &:before {
+                    content : ' ';
+                    height  : 0;
+                    position: absolute;
+                    width   : 0;
+                    border  : 10px solid transparent;
+                }
+
+                &:before {
+                    border-bottom-color: map-get(map-get($color-light-map, 'form'), 'head2');
+                    position           : absolute;
+                    top                : -19px;
+                    left               : 50%;
+                    margin-left        : -9px;
+                    z-index            : 2;
+                }
+
+                &:after {
+                    border-bottom-color: map-get(map-get($color-fixed-map, 'border'), 'b1');
+                    position           : absolute;
+                    top                : -20px;
+                    left               : 50%;
+                    margin-left        : -9px;
+                    z-index            : 1;
+                }
+
+                li {
+                    height       : 44px;
+                    width        : 100%;
+                    padding      : 0 14px;
+                    box-sizing   : border-box;
+                    line-height  : 44px;
+                    font-size    : 14px;
+                    color        : map-get(map-get($color-fixed-map, 'nav'), 'hoverword');
+                    cursor       : pointer;
+                    overflow     : hidden;
+                    white-space  : nowrap;
+                    text-overflow: ellipsis;
+
+                    &:hover {
+                        background-color: map-get(map-get($color-light-map, 'form'), 'on');
+                        color           : map-get(map-get($color-fixed-map, 'main'), 'first');
+                    }
+                }
+            }
+        }
+    }
+}

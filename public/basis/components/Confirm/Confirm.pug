@@ -1,0 +1,25 @@
+//- 强选择弹窗 pug模板 
+.component___confirm(ng-click="maskClickEvent($event)")
+    .component___confirm_main(
+        component-popup 
+        pop-close="close" 
+        pop-open="open" 
+        pop-is-btn="true"
+    )
+        .component___confirm_msg
+            p {{msg}}
+            
+        .component___confirm_btns
+            .component__popup_btn_box
+                component-button(
+                    type="normal" 
+                    btn-class="component__popup_btn" 
+                    btn-name="取消" 
+                    click="cancelEvent()"
+                )
+                component-button(
+                    type="first" 
+                    btn-class="component__popup_btn" 
+                    btn-name="确定" 
+                    click="submitEvent()"
+                )

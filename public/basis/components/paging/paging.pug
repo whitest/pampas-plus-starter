@@ -1,0 +1,13 @@
+//- 分页组件 pug模板
+.component__paging(ng-class="selfClass")
+    .component__paging_size(ng-show="!!pageInfo.hasPageSize")
+        span 每页显示
+        component-select(config="pageSizeConfig" init="pageSizeInit")
+        span 条
+    paging(
+        ul-class="component__page_ul lib__paging" 
+        page="pageInfo.page" 
+        page-size="pageInfo.limit" 
+        total="pageInfo.total" 
+        paging-action="pageInfo.action(page)"
+    )

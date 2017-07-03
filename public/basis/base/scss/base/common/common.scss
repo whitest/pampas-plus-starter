@@ -1,0 +1,68 @@
+/* 一些公共样式 底层scss变量、常量、样式、方法等封装 */
+/*
+ *  普通变量：$common-name: {value};
+ *
+ *  数组变量：$common-name-arr: (arg1, arg2);
+ *
+ *  map变量：$common-name-map: (key1: value1, key2: value2);
+ *
+ *  mixin方法封装：@mixin baseCommonName($args){}
+ *
+ *  function方法封装：@function baseCommonName($args){}
+ *
+ *  占位符封装：%baseCommonName{}
+ */
+/*清除浮动*/
+%baseCommonClearFix {
+    zoom: 1;
+
+    &:after {
+        display    : block;
+        clear      : both;
+        height     : 0;
+        line-height: 0;
+        content    : '';
+        visibility : hidden;
+    }
+}
+/*满屏*/
+%baseCommonFullScreen {
+    position: absolute;
+    top     : 0;
+    left    : 0;
+    width   : 100%;
+    height  : 100%;
+}
+/*满屏相对屏幕固定*/
+%baseCommonFullScreenFixed {
+    position: fixed;
+    top     : 0;
+    left    : 0;
+    width   : 100%;
+    height  : 100%;
+}
+/*文字过多省略号*/
+%baseCommonEllipsis {
+    overflow     : hidden;
+    text-overflow: ellipsis;
+    white-space  : nowrap;
+}
+/*居中图窗公共样式*/
+@mixin baseCommonMiddlePopup($width) {
+     @extend %baseCommonFullScreenFixed;
+    @extend %baseMaskNormal;
+    display: table;
+    z-index: 200;
+
+    .base__common__middle_popup {
+        display       : table-cell;
+        vertical-align: middle;
+
+        .base__common__middle_popup_main {
+            box-sizing      : border-box;
+            margin          : 0 auto;
+            width           : $width;
+            background-color: map-get(map-get($color-light-map, 'alert'), 'bg');
+        }
+    }
+}

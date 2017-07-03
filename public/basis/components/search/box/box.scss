@@ -1,0 +1,81 @@
+/* 搜索框 样式 */
+.component__search__box {
+    position     : relative;
+    display      : inline-block;
+    box-sizing   : border-box;
+    padding      : 10px 78px 10px 42px;
+    width        : 100%;
+    height       : 100%;
+    background   : #FFF;
+    @include baseBorderMain();
+    border-radius: 3px;
+    transition   : all 0.3s;
+
+    &.focus {
+        @include baseThemeBorderColor( 'first', 'main');
+        @include baseThemeBoxShadow( 'first', 'main', 1, 0 0 2px 0);
+    }
+
+    &.is_suggest {
+        padding-right: 10px;
+    }
+
+    &.disabled {
+        // 不可填写
+        color           : map-get(map-get($color-fixed-map, 'aid'), 'w4');
+        background-color: map-get(map-get($color-light-map, 'alert'), 'bg');
+        // box-shadow      : none;
+        // border-color    : map-get(map-get($color-fixed-map, 'border'), 'b2');
+        //
+        // &:hover {
+        //     border-color: map-get(map-get($color-fixed-map, 'border'), 'b2');
+        // }
+    }
+
+    > em {
+        position       : absolute;
+        top            : 0;
+        left           : 0;
+        display        : inline-block;
+        width          : 42px;
+        height         : 100%;
+        background     : url($img-input-search) no-repeat center;
+        background-size: 23px;
+        border-radius  : 3px;
+    }
+
+    .component__search__box_text {
+        // 默认输入框
+        display  : inline-block;
+        padding  : 0;
+        width    : 100%;
+        height   : 100%;
+        border   : 0;
+        font-size: 14px;
+
+        &.disabled {
+            // 不可填写
+            color           : map-get(map-get($color-fixed-map, 'aid'), 'w4');
+            background-color: map-get(map-get($color-light-map, 'alert'), 'bg');
+            // box-shadow      : none;
+            // border-color    : map-get(map-get($color-fixed-map, 'border'), 'b2');
+            //
+            // &:hover {
+            //     border-color: map-get(map-get($color-fixed-map, 'border'), 'b2');
+            // }
+        }
+    }
+
+    .component__search__box_btn {
+        // 搜索按钮
+        position                 : absolute;
+        top                      : -1px;
+        right                    : -1px;
+        width                    : 68px;
+        height                   : 40px;
+        z-index                  : 10;
+        border-radius            : 2px;
+        border-top-left-radius   : 0;
+        border-bottom-left-radius: 0;
+    }
+}

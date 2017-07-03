@@ -1,0 +1,13 @@
+/* 店铺logo 样式 */
+.component__shop_logo {
+    width     : 80px;
+    height    : 60px;
+    background: {
+        image   : url($img-shop-logo);
+        position: center;
+        repeat  : no-repeat;
+        size    : 45px;
+    };
+    @include baseThemeBgColor( 'nav', 'logobg');
+    cursor    : pointer;
+}

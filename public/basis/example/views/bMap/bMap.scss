@@ -1,0 +1,30 @@
+.bMap {
+  > .self__location_info {
+    height    : 100%;
+    padding   : 0 46px;
+    box-sizing: border-box;
+    overflow-y: auto;
+
+    > dl {
+      display      : table;
+      margin-bottom: 10px;
+
+      dd,
+      dt {
+        display: table-cell;
+      }
+
+      dt {
+        width: 80px;
+      }
+
+      dd {
+        padding-right: 10px;
+
+        .location_info_input {
+          width: 410px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,240 @@
+/* 公共图片配置 底层scss变量、常量、样式、方法等封装 */
+/*
+ *  普通变量：$img-name: {value};
+ *
+ *  数组变量：$img-name-arr: (arg1, arg2);
+ *
+ *  map变量：$img-name-map: (key1: value1, key2: value2);
+ *
+ *  mixin方法封装：@mixin baseImgName($args){}
+ *
+ *  function方法封装：@function baseImgName($args){}
+ *
+ *  占位符封装：%baseImgName{}
+ */
+$img-url                             : '../base/imgs/';
+/*左侧菜单 icon*/
+$img-left-menu-normal-map            : ( cashier: $img-url + 'cashier_normal.png', customer: $img-url + 'customer_normal.png', market: $img-url + 'market_normal.png', statistics: $img-url + 'statistics_normal.png', operate: $img-url + 'operate_normal.png', system: $img-url + 'system_normal.png', gym:$img-url+'gym_normal.png', dataControl:$img-url+'dataControl_normal.png', contract:$img-url+'contract_normal.png', transfer:$img-url+"transfer_normal.png", );
+$img-left-menu-active-map            : (cashier: $img-url + 'cashier_active.png', customer: $img-url + 'customer_active.png', market: $img-url + 'market_active.png', statistics: $img-url + 'statistics_active.png', operate: $img-url + 'operate_active.png', system: $img-url + 'system_active.png', gym:$img-url+'gym_active.png', dataControl:$img-url+'dataControl_active.png', contract:$img-url+'contract_active.png', transfer:$img-url+"transfer_active.png", );
+/*顶部操作部分 icon*/
+$img-top-bar-ctrl-map                : (msg:$img-url+'msg.png',shops:$img-url+'shops.png',user_ctrl:$img-url+'user_ctrl.png');
+/*收银模块*/
+$img-cashier-empty                   : $img-url + 'cashier_empty.png';
+/*输入框 日历*/
+$img-input-date                      : $img-url + 'input_date.png';
+/*输入框 搜索*/
+$img-input-search                    : $img-url+'search_icon.png';
+/*收银 会员信息背景图*/
+$img-cash-info-bg                    : $img-url+'cash_user_info_bg.png';
+/* 性别男*/
+$img-sex-man                         : $img-url+'sex_man.png';
+/* 性别女*/
+$img-sex-woman                       : $img-url+'sex_woman.png';
+/*默认头像*/
+$img-default-head                    : $img-url+'default_head.png';
+/*签到搜索结果默认头像*/
+$img-sign-result-default-head        : $img-url+'sign_result_default_head.png';
+/*相机icon*/
+$img-carema                          : $img-url+'carema.png';
+/*关闭弹窗icon*/
+$img-close-icon                      : $img-url+'close_inco.png';
+/*签到成功*/
+$img-sign-success                    : $img-url+'sign_success.png';
+/*签到已过期*/
+$img-sign-expired                    : $img-url+'sign_expired.png';
+/*签到请假中*/
+$img-sign-leave                      : $img-url+'sign_leave.png';
+/*到店成功*/
+$img-to-shop-success                 : $img-url +'to_shop_success.png';
+/*改变签到类型小三角 下*/
+$img-sign-change-search-down         : $img-url + 'sign_change_search_down.png';
+/*改变签到类型小三角 上*/
+$img-sign-change-search-up           : $img-url + 'sign_change_search_up.png';
+/*组件 多项选择按钮*/
+$img-checkbox-default                : $img-url + 'checkbox_default.png'; // 默认
+$img-checkbox-disabled               : $img-url + 'checkbox_disabled.png'; // 未选中，且不可点击
+$img-checkbox-checked                : $img-url + 'checkbox_checked.png'; // 已选中
+$img-checkbox-default-checked        : $img-url + 'checkbox_default_checked.png'; // 已选中，且不可点击
+/*组件 单项选择按钮*/
+$img-radio-default                   : $img-url + 'radio_default.png'; // 默认
+$img-radio-disabled                  : $img-url + 'radio_disabled.png'; // 未选中，且不可点击
+$img-radio-checked                   : $img-url + 'radio_checked.png'; // 已选中
+$img-radio-default-checked           : $img-url + 'radio_default_checked.png'; // 已选中，且不可点击
+/*商品列表 选中对勾*/
+$img-ware-choose-on                  : $img-url + 'ware_choose_on.png'; // 选中对勾
+/*组件 第一级别返回按钮*/
+$img-top-back                        : $img-url + 'top_back.png'; // 第一级别返回按钮
+/*收银 待收款 底纹*/
+$img-order-payment-bg                : $img-url + 'order_payment_bg.png'; // 收银 待收款 底纹
+/*更多 ... */
+$img-more-icon                       : $img-url+'more_icon.png';
+$img-more-icon-normal                : $img-url+'more_icon_normal.png';
+/*小弹窗上三角*/
+$img-pop-top-arrow                   : $img-url+'pop_top_arrow.png';
+/*会员筛选时间的icon*/
+$img-customer-filter-date            : $img-url+'edit_filter_date.png';
+/*组件 气泡图标*/
+$img-popicon-search                  : $img-url+'popicon_search.png'; // 查看
+$img-popicon-search-no-permission    : $img-url+'popicon_search_no_permission.png';
+$img-popicon-edit                    : $img-url+'popicon_edit.png'; // 编辑
+$img-popicon-edit-no-permission      : $img-url+'popicon_edit_no_permission.png';
+$img-popicon-drop                    : $img-url+'popicon_drop.png'; // 删除
+$img-popicon-drop-no-permission      : $img-url+'popicon_drop_no_permission.png';
+$img-popicon-course                  : $img-url+'popicon_course.png'; // 已预约课程 编辑
+$img-popicon-course-no-permission    : $img-url+'popicon_course_no_permission.png';
+$img-popicon-down                    : $img-url+'popicon_down.png'; //向下
+$img-popicon-down-no-permission      : $img-url+'popicon_down_no_permission.png';
+$img-popicon-up                      : $img-url+'popicon_up.png'; //向上
+$img-popicon-up-no-permission        : $img-url+'popicon_up_no_permission.png';
+$img-popicon-offline                 : $img-url+'popicon_offline.png'; //下线
+$img-popicon-offline-no-permission   : $img-url+'popicon_offline_no_permission.png';
+$img-popicon-storage                 : $img-url+'popicon_storage.png'; //入库
+$img-popicon-storage-no-permission   : $img-url+'popicon_storage_no_permission.png';
+$img-popicon-membership              : $img-url+'popicon_membership.png'; //分配会籍
+$img-popicon-membership-no-permission: $img-url+'popicon_membership_no_permission.png';
+$img-popicon-leave                   : $img-url+'popicon_leave.png'; // 确认离场
+$img-popicon-receive                 : $img-url+'component_popicon_receive.png'; // 接收
+$img-popicon-receive-no-permission   : $img-url+'component_popicon_receive_no_permission.png';
+$img-popicon-quit                    : $img-url+'popIcon_quit.png'; //签退
+$img-popicon-quit-no-permission      : $img-url+'popIcon_quit_no_permission.png'; //
+$img-popicon-cancle                  : $img-url+'popIcon_cancle.png'; //取消
+$img-popicon-cancle-no-permission    : $img-url+'popIcon_cancle_no_peimission.png';
+$img-popicon-confirm                 : $img-url+'popIcon_confirm.png'; //确认到店
+$img-popicon-confirm-no-permission   : $img-url+'popIcon_confirm_no_peimission.png';
+$img-popicon-sales                   : $img-url+'popIcon_sales.png'; //售卖
+$img-popicon-sales-no-permission     : $img-url+'popIcon_sales_no_peimission.png';
+$img-popicon-forbid                  : $img-url+'popIcon_forbid.png'; //禁售
+$img-popicon-forbid-no-permission    : $img-url+'popIcon_forbid_no_peimission.png';
+$img-popicon-receipt                 : $img-url+'popIcon_receipt.png'; //打印小票
+$img-popicon-receipt-no-permission   : $img-url+'popIcon_receipt_no_peimission.png';
+$img-popicon-backout                 : $img-url+'popIcon_backout.png'; //签到撤销
+$img-popicon-backout-no-permission   : $img-url+'popIcon_backout_no_peimission.png';
+$img-popicon-status                  : $img-url+'popIcon_status.png'; //员工状态
+$img-popicon-status-no-permission    : $img-url+'popIcon_status_no_peimission.png';
+$img-popicon-contract                : $img-url+'popIcon_contract.png'; //合同编号
+$img-popicon-contract-no-permission  : $img-url+'popIcon_contract_no_peimission.png';
+$img-popicon-note                    : $img-url+'popicon_note_normal.png';//注释
+$img-popicon-note-hover              : $img-url+'popicon_note_hover.png';
+/*组件 table*/
+$img-table-ctrl-normal               : $img-url + 'table_ctrl_normal.png'; // 表格操作，默认时的图标
+$img-table-empty                     : $img-url + 'table_empty.png'; // 表格空的时候，默认图标
+/*拍照icon*/
+$img-photo-icon                      : $img-url+'photo.png';
+/*会员详情*/
+$img-edit-icon                       : $img-url+'edit_icon.png'; // 编辑icon
+/*会员筛选选择背景图*/
+$img-customer-fliter-checked         : $img-url+'customer_list_filter_checked.png';
+/*会员列表 筛选选中状态*/
+$img-customer-list-filter-checked    : $img-url+'filter_checked.png';
+/*营销-微信入口icon*/
+$img-marking-wechat                  : $img-url+'marking_wechat.png';
+/*营销-口碑入口icon*/
+$img-marking-koubei                  : $img-url+'marking_koubei.png';
+/*营销-短信入口icon*/
+$img-marking-message                 : $img-url+'marking_message.png';
+/*微信活动 手机图片*/
+$img-wechat-phone                    : $img-url+'wechat_phone.png';
+/*上传图片组件*/
+$img-img-add                         : $img-url+'img_add.png'; // 新增图片 加号
+$img-img-drop                        : $img-url+'img_drop.png'; // 删除图片 小叉
+/*经营管控 排期*/
+$img-circle-arrow-left               : $img-url+'circle_arrow_left.png'; // 左圆箭头
+$img-circle-arrow-left-active        : $img-url+'circle_arrow_left_active.png';
+$img-circle-arrow-right              : $img-url+'circle_arrow_right.png'; // 右圆箭头
+$img-circle-arrow-right-active       : $img-url+'circle_arrow_right_active.png';
+$img-avatar-list-more                : $img-url + 'avatar_list_more.png'; // 更多头像
+$img-schedule-type-calendar          : $img-url + 'schedule_type_calendar.png'; // 排期展示方式-日历
+$img-schedule-type-list              : $img-url + 'schedule_type_list.png'; // 排期展示方式-列表
+/*删减*/
+$img-add                             : $img-url+'add.png';
+$img-delete                          : $img-url+'delete.png';
+/*
+  * 连锁部分
+*/
+/* 连锁店铺列表icon*/
+$img-manage-shop-list-icon           : $img-url+'manage_shop_list_icon.png';
+/*连锁店铺列表-地址icon*/
+$img-manage-shop-list-address        : $img-url+'manage_shop_list_address.png';
+/*连锁店铺列表-电话icon*/
+$img-manage-shop-list-phone          : $img-url+'manage_shop_list_phone.png';
+/*连锁店铺列表-操作icon*/
+$img-manage-shop-list-ctrl           : $img-url+'manage_shop_list_ctrl.png';
+/*连锁店铺列表-添加icon*/
+$img-manage-shop-list-add            : $img-url+'mansge_shop_list_add.png';
+/*警告提示icon*/
+$img-important-warning               : $img-url+'important_warning.png';
+$img-warning                         : $img-url+'warning.png';
+/*组件，商品图片*/
+$img-normal-ware-pic                 : $img-url + 'normal_ware_pic.png'; // 默认图片
+/*字体加粗*/
+$img-font-bold                       : $img-url+'bold.png';
+/*恢复*/
+$img-restore                         : $img-url+'restore.png';
+/*合同*/
+$img-contract-manage                 : $img-url+'contract_manage.jpg';
+/*私教课余量查询*/
+$img-private-less-total              : $img-url+'private_less_total.png'; // 课程总量
+$img-private-less-30-total           : $img-url+'private_less_30_total.png'; // 一个月内课程总量
+$img-private-less-consume            : $img-url+'private_less_consume.png'; // 一个月内课程总量
+/*密码icon*/
+$img-password                        : $img-url+"password.png";
+/*退出登录icon*/
+$img-quit                            : $img-url+"quit.png";
+/*组件 头像编辑*/
+$img-avatar-carema                   : $img-url + 'avatar_carema.png'; // 拍照btn
+$img-avatar-file                     : $img-url + 'avatar_file.png'; // 上传文件btn
+/*登录*/
+$img-login-option                    : $img-url + 'login_option.png'; // 选项
+$img-login-super                     : $img-url + 'login_super.png'; // 超管
+/*员工*/
+$img-circle-arraw-up                 : $img-url + 'circle_arraw_up.png'; // 更多信息向上箭头
+$img-circle-arraw-down               : $img-url + 'circle_arraw_down.png'; // 更多信息向上箭头
+/* 弱提示 */
+$img-popalert-success                : $img-url + 'popalert_success.png'; // 成功
+/* 控制局部页面展示 收起 */
+$img-pack-up                         : $img-url+'pack_up.png'; // 收起
+/* 控制局部页面展示 展开 */
+$img-unfold                          : $img-url+'unfold.png'; // 展开
+/* 无权限 */
+$img-no-mission                      : $img-url+'no_mission.png'; // 无权限
+/* index 背景图 */
+$img-index-bg                        : $img-url +'index_bg.jpg';
+/* 箭头返回 */
+$img-back-arrow                      : $img-url+'back_arrow.png';
+$img-back-arrow-click                : $img-url+'back_arrow_click.png';
+$img-pop-error-icon                  : $img-url+'pop_error_icon.png'; // error
+$img-onload-back                     : $img-url+'onload_back.png'; // 登录页面 back
+/* 初始页pic */
+$img-init-page-pic                   : $img-url+'page_init.png';
+$img-init-page-channel               : $img-url+'init_page_channel.png'; //多渠道
+$img-init-page-platform              : $img-url+'init_page_platform.png'; //跨平台
+$img-init-page-position              : $img-url+'init_page_position.png'; //全方位
+$img-init-page-dimensional           : $img-url+'init_page_dimensional.png'; //立体化
+/* 空状态icon */
+$img-empty-status                    : $img-url+'empty_status.png'; //空状态
+/* 签退成功 */
+$img-out-success                     : $img-url+'out_success.png';
+/* 店铺logo */
+$img-login-logo                      : $img-url+'index_logo.png';
+/* 左侧导航logo */
+$img-shop-logo                       : $img-url+'shop_logo.png';
+/* 财务报表icon */
+$img-finance-report                  : $img-url+'finance_report.png';
+/* 客户分析 */
+$img-customer-analysis               : $img-url+'customer_analysis.png';
+/* 统计概览分析icon */
+$img-analysis                        : $img-url+'analysis.png';
+/* 会员跟进状态 */
+$img-customer-status-normal          : $img-url+'customer_status_normal.png';
+$img-customer-status-on              : $img-url+'customer_status_on.png';
+/* 首页店铺logo-注册、修改密码 */
+$img-index-shop-log                  : $img-url+'index_shop_logo.png';
+/* 手环 */
+$img-wristband                       : $img-url + 'wristband.png';
+/* 收银，会员类型标识 */
+$img-cashier-member-expired          : $img-url + 'cashier_member_expired.png'; // 过期会员
+$img-cashier-member-normal           : $img-url + 'cashier_member_normal.png'; // 正式会员
+$img-cashier-member-visitor          : $img-url + 'cashier_member_visitor.png'; // 潜在会员
+$img-loading                         : $img-url + 'loading.gif';
+$img-loading-small                   : $img-url + 'loading_small.gif';
+$img-img-afreach                     : $img-url + 'img_afreach.png';

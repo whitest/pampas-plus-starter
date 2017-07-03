@@ -1,0 +1,25 @@
+/* 提示帮助组件 样式 */
+.component__prompt {
+    display       : inline-block;
+    position      : relative;
+    width         : 16px;
+    height        : 16px;
+    vertical-align: sub;
+
+    .component__popicon {
+        width : 16px;
+        height: 16px;
+
+        span {
+            top : -32px;
+            left: -7px;
+        }
+
+        .component_popicon_img_note {
+            // 时间段查询
+            width          : 16px;
+            height         : 16px;
+            background-size: 16px;
+        }
+    }
+}

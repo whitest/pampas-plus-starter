@@ -1,0 +1,11 @@
+//- 按钮组件 pug模板
+.component__button
+    input(
+        type="{{btnType}}" 
+        class="{{className}} {{btnClass}}" 
+        ng-class="{'no_permission':!!isPermission&&!noPermission, 'unclick':!!isUnclick, 'press':!!isPress, 'loading':!!loading}" 
+        value="{{btnName}}" 
+        ng-click="clickEvent()" 
+        ng-mousedown="mousedownEvent()" 
+        ng-mouseup="mouseupEvent()"
+    )
