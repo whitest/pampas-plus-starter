@@ -11,8 +11,6 @@ public
 
     imgs
 
-    scss
-
     app
         app.pug
         app.ts
@@ -22,6 +20,6 @@ public
             details
             add
             edit
-            
+
             cmpt
 ```

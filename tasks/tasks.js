@@ -6,9 +6,17 @@
 const gulp = require('gulp');
 
 const config = require('../gulpfile.config.js');
-const rootpug = require('./constructs/rootpug/construct.js');
+
+const rootPug = require('./constructs/rootPug/construct.js');
+const rootPug = require('./constructs/rootPug/construct.js');
 
 
-gulp.task('rootpug', () => {
-    return rootpug('testest').pipe(gulp.dest(`${config.ROOT_URL}/test`))
-})
+gulp.task('rootPug', () => {
+    return rootPug('testest').pipe(gulp.dest(`${config.ROOT_URL}/test`))
+});
+
+
+
+gulp.task('rootModule', () => {
+    return 
+});
