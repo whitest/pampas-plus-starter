@@ -8,7 +8,7 @@ const gulp = require('gulp');
 const config = require('../gulpfile.config.js');
 
 const rootPug = require('./constructs/rootPug/construct.js');
-const rootPug = require('./constructs/rootPug/construct.js');
+const rootModule = require('./constructs/rootModule/construct.js');
 
 
 gulp.task('rootPug', () => {
@@ -18,5 +18,5 @@ gulp.task('rootPug', () => {
 
 
 gulp.task('rootModule', () => {
-    return 
+    return
 });

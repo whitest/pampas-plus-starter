@@ -16,10 +16,16 @@ public
         app.ts
         ...
         customer(menu1)
-            list
-            details
-            add
-            edit
+            views
+                list
+                details
+                add
+                edit
 
             cmpt
+                sth
+                ...
+
+            customer.ts
+            customer.scss
 ```

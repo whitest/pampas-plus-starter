@@ -1,5 +1,7 @@
 const gulp = require('gulp');
 
-require('./tasks/tasks.js');
+const cli = require('./cli/tree/tree.constructs.js');
 
-gulp.task('test', ['rootPug']);
+gulp.task('tree', function(){
+    cli.constructs()
+});

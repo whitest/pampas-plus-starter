@@ -13,6 +13,6 @@ exports = module.exports = {
     COMMON_IMPORT: `import * as angular from 'angular';\nimport * as C from 'core';\n`;
 
 
-
+    // INJECT: 
 
 };

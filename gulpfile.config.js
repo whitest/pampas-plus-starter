@@ -2,7 +2,8 @@
  * gulp 构建初始文件目录 配置
  */
 
-const ROOT_URL = './public';
+const path = require('path');
+const ROOT_URL = path.join(__dirname, 'public');
 
 exports = module.exports = {
     ROOT_URL,

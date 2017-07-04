@@ -7,10 +7,10 @@ const replace = require('gulp-replace');
 const concat = require('gulp-concat');
 const path = require('path');
 
-const temp = path.join(__dirname, '/template.pug');
+const template = path.join(__dirname, '/template.pug');
 
 exports = module.exports = (className) => {
-    return gulp.src(temp)
+    return gulp.src(template)
         .pipe(replace(/\[__CLASSNAME\]/g, className))
         .pipe(concat('app.pug'))
 };

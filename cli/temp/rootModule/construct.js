@@ -7,8 +7,8 @@ const replace = require('gulp-replace');
 const concat = require('gulp-concat');
 const path = require('path');
 
-const config = require('../constructs.config.js');
-const temp = path.join(__dirname, '/template.js');
+const config = require('../temp.config.js');
+const template = path.join(__dirname, '/template.js');
 
 
 
@@ -24,7 +24,7 @@ exports = module.exports = (opts) => {
         modulesName += el.replace(/\b(\w)|\s(\w)/g, m => m.toUpperCase());
     });
 
-    return gulp.src(temp)
+    return gulp.src(template)
         .pipe(replace(/\[__COMMONIMPORT\]/, COMMON_IMPORT))
         .pipe(concat('app.ts'))
 };
