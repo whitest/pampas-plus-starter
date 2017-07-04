@@ -3,12 +3,14 @@
  */
 
 const path = require('path');
+const fs = require('fs');
 const chalk = require('chalk');
 const gulpConfig = require('../../gulpfile.config.js');
 const tree = require('./tree.js');
 const type2files = require('./tree.type2files.js');
+const fileInclude = require('./tree.fileInclude.js');
 const err = require('./tree.error.js');
-
+const temp = require('../temp/temp.js');
 
 
 
@@ -19,6 +21,8 @@ const err = require('./tree.error.js');
  * @param {String} dirname 绝对路径
  */
 function constructs(tree, filesName, dirname) {
+
+    filesName = tree.filesName || filesName;
 
     if (tree.children) {
         if ('[object Object]' !== tree.children.toString()) {
@@ -45,7 +49,23 @@ function constructs(tree, filesName, dirname) {
         files = type2files[tree.type];
     };
 
+    files.forEach((el, i, arr) => {
+        if (!fileInclude(el)) {
+            err(`${filesName}中，files有个未知文件类型（files类型：${el}）`);
+            return;
+        };
 
+        const opts = {
+            dirname,
+            filesName,
+            enforce: tree.enforce,
+            fileType: el,
+            dependsArr: arr,
+        };
+
+        temp(opts);
+
+    });
 
 
 };

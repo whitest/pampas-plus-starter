@@ -9,8 +9,11 @@ const path = require('path');
 
 const template = path.join(__dirname, '/template.pug');
 
-exports = module.exports = (className) => {
+exports = module.exports = (opts) => {
+
+    const { className, filesName } = opts;
+
     return gulp.src(template)
         .pipe(replace(/\[__CLASSNAME\]/g, className))
-        .pipe(concat('app.pug'))
+        .pipe(concat(`${filesName}.pug`))
 };
