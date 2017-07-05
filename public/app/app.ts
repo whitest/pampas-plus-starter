@@ -12,7 +12,7 @@ import '../basis/base/js/ngdropover.js';
 import '../basis/base/js/paging.js';
 import Base from '../base/base';
 import Component from '../component/component';
-
+import './app.root.scss';
 
 const app = angular
     .module('app', ['ngRoute', 'angularFileUpload', 'AngularPrint', 'angular-echarts', 'duScroll', 'uiCropper', 'ng.ueditor', 'ngDropover', 'bw.paging', Base.name, Component.name, ])

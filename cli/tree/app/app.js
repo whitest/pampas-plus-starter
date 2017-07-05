@@ -5,8 +5,8 @@
 exports = module.exports = {
     type: 'app',
     filesName: 'app',
-    enforce: ['rootModule'],
-    description: '测试',
+    enforce: ['rootModule', 'rootScss'],
+    description: 'app',
     children: {
 
     },

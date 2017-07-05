@@ -21,14 +21,14 @@ const template = path.join(__dirname, '/template.ts');
 exports = module.exports = (opts) => {
     const { COMMON_IMPORT } = config;
 
-    const { dependsArr } = opts;
+    const { dependsArr, filesName } = opts;
 
-    let IMPORT = [];
-    let DEPENDS = [];
-    let INJECT = [];
+    const IMPORT = [];
+    const DEPENDS = [];
+    const INJECT = [];
 
     if (dependsArr.includes('rootScss')) {
-        IMPORT.push(`import './${filesName}.scss';`);
+        IMPORT.push(`import './${filesName}.root.scss';`);
     };
 
 

@@ -10,7 +10,7 @@
 const INCLUDE_FILES = [
     'rootModule',
     'rootPug',
-    // 'rootScss',
+    'rootScss',
     // 'service',
     // 'config',
     // 'run',

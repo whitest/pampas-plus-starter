@@ -20,7 +20,7 @@ const temp = require('../temp/temp.js');
  * @param {String} filesName 文件的名称，tree.filesName 或 tree的 key
  * @param {String} dirname 绝对路径
  */
-function constructs(tree, filesName, dirname) {
+async function constructs(tree, filesName, dirname) {
 
     filesName = tree.filesName || filesName;
 
@@ -43,10 +43,13 @@ function constructs(tree, filesName, dirname) {
             err(`${filesName}中files数组为空`);
         };
         files = tree.files;
-    } else if (!type2files.hasOwnProperty(tree.type)) {
-        err(`${filesName}中type类型不常见（type类型：${tree.type}）`);
     } else {
-        files = type2files[tree.type];
+        try {
+            files = await type2files(tree.type);
+        } catch (e) {
+            err(`${filesName}中type类型不常见（${e}）`);
+            return;
+        };
     };
 
     files.forEach((el, i, arr) => {
@@ -60,7 +63,9 @@ function constructs(tree, filesName, dirname) {
             filesName,
             enforce: tree.enforce,
             fileType: el,
+            description: tree.description,
             dependsArr: arr,
+            children: tree.children,
         };
 
         temp(opts);
