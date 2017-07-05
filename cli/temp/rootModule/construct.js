@@ -8,7 +8,8 @@ const concat = require('gulp-concat');
 const path = require('path');
 
 const config = require('../temp.config.js');
-const template = path.join(__dirname, '/template.js');
+const suffix = require('./suffix.js');
+const template = path.join(__dirname, '/template.ts');
 
 
 
@@ -20,11 +21,21 @@ const template = path.join(__dirname, '/template.js');
 exports = module.exports = (opts) => {
     const { COMMON_IMPORT } = config;
 
-    opts._dirArr.forEach(el => {
-        modulesName += el.replace(/\b(\w)|\s(\w)/g, m => m.toUpperCase());
-    });
+    const { dependsArr } = opts;
+
+    let IMPORT = [];
+    let DEPENDS = [];
+    let INJECT = [];
+
+    if (dependsArr.includes('rootScss')) {
+        IMPORT.push(`import './${filesName}.scss';`);
+    };
+
 
     return gulp.src(template)
         .pipe(replace(/\[__COMMONIMPORT\]/, COMMON_IMPORT))
-        .pipe(concat('app.ts'))
+        .pipe(replace(/\[__IMPORT\]/, IMPORT.join('\n')))
+        .pipe(replace(/\[__DEPENDS\]/, DEPENDS.join(', ')))
+        .pipe(replace(/\[__INJECT\]/, INJECT.join('\n')))
+        .pipe(concat(`app${suffix}`));
 };

@@ -50,7 +50,7 @@ function constructs(tree, filesName, dirname) {
     };
 
     files.forEach((el, i, arr) => {
-        if (!fileInclude(el)) {
+        if (!fileInclude.check(el)) {
             err(`${filesName}中，files有个未知文件类型（files类型：${el}）`);
             return;
         };

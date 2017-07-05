@@ -10,9 +10,9 @@ exports = module.exports = {
      * 基本每个ts文件都会引用
      * @type {string}
      */
-    COMMON_IMPORT: `import * as angular from 'angular';\nimport * as C from 'core';\n`;
+    COMMON_IMPORT: `import * as angular from 'angular';\nimport * as C from 'core';\n`,
 
 
-    // INJECT: 
+    // INJECT:
 
 };

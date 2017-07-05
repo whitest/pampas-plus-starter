@@ -3,7 +3,19 @@
  */
 
 
-const INCLUDE_FILES = ['rootModule', 'rootPug', 'rootScss', 'service', 'config', 'run', 'routeConfig'];
+/**
+ * 全部文件类型
+ * @type {Array}
+ */
+const INCLUDE_FILES = [
+    'rootModule',
+    'rootPug',
+    // 'rootScss',
+    // 'service',
+    // 'config',
+    // 'run',
+    // 'routeConfig'
+];
 
 
 /**
@@ -11,6 +23,9 @@ const INCLUDE_FILES = ['rootModule', 'rootPug', 'rootScss', 'service', 'config',
  * @param  {String} fileType 文件类型名称
  * @return {Boolean}         是否可构建
  */
-exports = module.exports = function (fileType) {
-    return INCLUDE_FILES.includes(fileType)
+exports = module.exports = {
+    INCLUDE_FILES,
+    check(fileType) {
+        return INCLUDE_FILES.includes(fileType)
+    },
 };

@@ -7,8 +7,8 @@ exports = module.exports = {
      * [app description]
      * @type {Array}
      */
-    app: ['rootModule', 'rootPug', 'rootScss', 'service', 'config', 'run', 'routeConfig'],
+    app: ['rootModule', 'rootPug', /*'rootScss', 'service', 'config', 'run', 'routeConfig'*/],
 
 
-    
+
 };
