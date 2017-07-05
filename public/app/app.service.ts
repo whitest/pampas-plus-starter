@@ -2,7 +2,7 @@
 import * as angular from 'angular';
 import * as C from 'core';
 
-interface myInterface extends ng.IComponentController {
+interface myInterface extends ng.IServiceProvider {
 
 };
 

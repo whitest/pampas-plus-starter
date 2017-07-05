@@ -12,8 +12,8 @@ const INCLUDE_FILES = [
     'rootPug',
     'rootScss',
     'service',
-    // 'config',
-    // 'run',
+    'config',
+    'run',
     // 'routeConfig'
 ];
 

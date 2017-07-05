@@ -1,5 +1,5 @@
 [__COMMONIMPORT]
-interface myInterface extends ng.IComponentController {
+interface myInterface extends ng.IServiceProvider {
 
 };
 
