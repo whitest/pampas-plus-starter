@@ -2,7 +2,7 @@
 import * as angular from 'angular';
 import * as C from 'core';
 
-const myConfig = (): void => {
+const myConfig: Function = (): void => {
     'ngInject';
 
 };

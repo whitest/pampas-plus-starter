@@ -13,6 +13,8 @@ const { COMMON_IMPORT } = config;
 const suffix = require('./suffix.js');
 const template = path.join(__dirname, '/template.ts');
 
+const makeName = require('../temp.makeName.js');
+
 
 
 /**
@@ -21,14 +23,32 @@ const template = path.join(__dirname, '/template.ts');
  */
 exports = module.exports = (opts) => {
 
-    const { dependsArr, filesName } = opts;
+    const { dependsArr, filesName, dirArr } = opts;
 
     const IMPORT = [];
     const DEPENDS = [];
     const INJECT = [];
 
+    const _name = makeName(dirArr);
+
     if (dependsArr.includes('rootScss')) {
         IMPORT.push(`import './${filesName}.root.scss';`);
+    };
+    if (dependsArr.includes('controller')) {
+        IMPORT.push(`import controller from './${filesName}.controller';`);
+        INJECT.push(`.controller('${_name}', <ng.IControllerConstructor>controller)`);
+    };
+    if (dependsArr.includes('service')) {
+        IMPORT.push(`import service from './${filesName}.service';`);
+        INJECT.push(`.service('${_name}Service', service)`);
+    };
+    if (dependsArr.includes('config')) {
+        IMPORT.push(`import config from './${filesName}.config';`);
+        INJECT.push(`.config(config)`);
+    };
+    if (dependsArr.includes('run')) {
+        IMPORT.push(`import run from './${filesName}.run';`);
+        INJECT.push(`.run(run)`);
     };
 
 
@@ -36,6 +56,6 @@ exports = module.exports = (opts) => {
         .pipe(replace(/\[__COMMONIMPORT\]/, COMMON_IMPORT))
         .pipe(replace(/\[__IMPORT\]/, IMPORT.join('\n')))
         .pipe(replace(/\[__DEPENDS\]/, DEPENDS.join(', ')))
-        .pipe(replace(/\[__INJECT\]/, INJECT.join('\n')))
+        .pipe(replace(/\[__INJECT\]/, INJECT.join('\n   ')))
         .pipe(concat(`app${suffix}`));
 };

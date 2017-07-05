@@ -13,8 +13,15 @@ import '../basis/base/js/paging.js';
 import Base from '../base/base';
 import Component from '../component/component';
 import './app.root.scss';
+import controller from './app.controller';
+import service from './app.service';
+import config from './app.config';
+import run from './app.run';
 
 const app = angular
-    .module('app', ['ngRoute', 'angularFileUpload', 'AngularPrint', 'angular-echarts', 'duScroll', 'uiCropper', 'ng.ueditor', 'ngDropover', 'bw.paging', Base.name, Component.name, ])
+    .module('app', ['ngRoute', 'angularFileUpload', 'AngularPrint', 'angular-echarts', 'duScroll', 'uiCropper', 'ng.ueditor', 'ngDropover', 'bw.paging', Base.name, Component.name, ]).controller('app', <ng.IControllerConstructor>controller)
+   .service('appService', service)
+   .config(config)
+   .run(run)
 
 angular.bootstrap(document, [app.name])

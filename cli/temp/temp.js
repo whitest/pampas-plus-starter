@@ -20,19 +20,17 @@ const allTemps = (function () {
 
 /**
  * 构建template 核心代码
- * @param  {[type]} opts [description]
+ * @param  {Object} opts [description]
  * @return {[type]}      [description]
  */
 function core(opts) {
 
     const { dirname, fileType } = opts;
+    const dirArr = dirname.slice(gulpConfig.ROOT_URL.length + 1).split('/'); // 文件路径，push到一个数组中
 
-    const dirArr = dirname.slice(gulpConfig.ROOT_URL.length).split('/'); // 文件路径，push到一个数组中
+    Object.assign(opts, { dirArr });
 
-    Object.assign(opts, dirArr);
-
-    allTemps[fileType].construct(opts)
-        .pipe(gulp.dest(dirname));
+    allTemps[fileType].construct(opts).pipe(gulp.dest(dirname));
 };
 
 

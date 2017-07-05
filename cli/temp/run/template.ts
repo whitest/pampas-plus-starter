@@ -1,5 +1,5 @@
 [__COMMONIMPORT]
-const myRun = (): void => {
+const myRun: Function = (): void => {
     'ngInject';
 
 };

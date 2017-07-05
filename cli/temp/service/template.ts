@@ -5,7 +5,7 @@ interface myInterface extends ng.IServiceProvider {
 
 class myService implements myInterface {
 
-    constructor(private BaseFactory) {
+    constructor(private $q: ng.IQService, private BaseFactory) {
         'ngInject';
     };
 

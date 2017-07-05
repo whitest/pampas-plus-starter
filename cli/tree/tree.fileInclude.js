@@ -11,10 +11,11 @@ const INCLUDE_FILES = [
     'rootModule',
     'rootPug',
     'rootScss',
+    'controller',
     'service',
     'config',
     'run',
-    // 'routeConfig'
+    'routeLink'
 ];
 
 

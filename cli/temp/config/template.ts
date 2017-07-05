@@ -1,5 +1,5 @@
 [__COMMONIMPORT]
-const myConfig = (): void => {
+const myConfig: Function = (): void => {
     'ngInject';
 
 };
