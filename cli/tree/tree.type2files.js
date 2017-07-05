@@ -18,6 +18,11 @@ const allTypes = {
     app: ['rootModule', 'rootPug', 'rootScss', 'controller', 'service', 'config', 'run', 'routeLink'],
 
 
+    /**
+     * [route description]
+     * @type {Array}
+     */
+    route: ['importScss', 'module', 'routeConfig'],
 
 };
 

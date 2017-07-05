@@ -15,7 +15,10 @@ const INCLUDE_FILES = [
     'service',
     'config',
     'run',
-    'routeLink'
+    'routeLink',
+    'importScss',
+    'module',
+    'routeConfig',
 ];
 
 
