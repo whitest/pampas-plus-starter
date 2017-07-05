@@ -8,9 +8,10 @@ const concat = require('gulp-concat');
 const path = require('path');
 
 const config = require('../temp.config.js');
+const { COMMON_IMPORT } = config;
+
 const suffix = require('./suffix.js');
 const template = path.join(__dirname, '/template.ts');
-
 
 
 
@@ -19,7 +20,6 @@ const template = path.join(__dirname, '/template.ts');
  * @type {Object} opts 配置
  */
 exports = module.exports = (opts) => {
-    const { COMMON_IMPORT } = config;
 
     const { dependsArr, filesName } = opts;
 

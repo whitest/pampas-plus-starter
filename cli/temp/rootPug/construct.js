@@ -16,5 +16,5 @@ exports = module.exports = (opts) => {
 
     return gulp.src(template)
         .pipe(replace(/\[__CLASSNAME\]/g, filesName))
-        .pipe(concat(`${filesName}.${suffix}`))
+        .pipe(concat(`${filesName}${suffix}`))
 };

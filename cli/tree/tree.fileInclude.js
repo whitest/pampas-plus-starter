@@ -11,7 +11,7 @@ const INCLUDE_FILES = [
     'rootModule',
     'rootPug',
     'rootScss',
-    // 'service',
+    'service',
     // 'config',
     // 'run',
     // 'routeConfig'

@@ -1,5 +1,5 @@
 /**
- * 构建单页面 app.pug
+ * 构建单页面 app.root.scss
  */
 
 const gulp = require('gulp');
