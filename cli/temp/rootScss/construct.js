@@ -16,7 +16,7 @@ exports = module.exports = (opts) => {
 
     const { filesName, description, children } = opts;
 
-    const IMPORT = Object.keys(children).map(el => `@import "./${el}/${el}.scss";`);
+    const IMPORT = Object.keys(children || {}).map(el => `@import "./${el}/${el}.scss";`);
 
     return gulp.src(template)
         .pipe(replace(/\[__IMPORT\]/g, IMPORT.join('\n')))

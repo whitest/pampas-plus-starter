@@ -67,4 +67,12 @@ exports = module.exports = {
         // core,
         app: require('./app/app.js'),
     },
+
+    /**
+     * 路由参数
+     * 路由页面会从 href 中接收的参数
+     * 会自动生成到调用它的 routeConfig 中
+     * @type {Array}
+     */
+    routeParams: [],
 };

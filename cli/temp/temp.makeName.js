@@ -16,5 +16,6 @@ exports = module.exports = (dirArr) => {
         if (i === 0) return el;
         return el.replace(/\b(\w)|\s(\w)/g, m => m.toUpperCase());
     });
-    return n.join();
+    const name = n.join('');
+    return name;
 };

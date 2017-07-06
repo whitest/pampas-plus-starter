@@ -7,7 +7,7 @@ const customer = {
     enforce: true,
     // enforce: ['rootModule', 'rootScss'],
     description: '会员模块',
-    children: {
-        
-    },
+    children: {},
 };
+
+exports = module.exports = customer;
